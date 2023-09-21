@@ -62,7 +62,6 @@ dfbarrios
 #Archivo compartido para poder sectorizar por latitud y longitud para poder graficar en el mapa
 """
 st.code(codigo_python, language="python")
-#G R A F I C A C I O N
 
 st.write("# PROCESO DE LIMPIEZA")
 
@@ -432,6 +431,10 @@ st.code(codigo_python, language="python")
 st.write('')
 
 
+st.markdown(
+    f'<div style="display: flex; justify-content: center;"><img src="./images/grafico1.png" alt="Gráfico 1"></div>',
+    unsafe_allow_html=True
+)
 
 
 # ACA VA EL PREPROCESAMIENTO ------------------------------------------ CRISTIAN
