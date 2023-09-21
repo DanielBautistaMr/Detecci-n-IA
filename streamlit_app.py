@@ -134,6 +134,9 @@ plt.show()
 """
 
 st.code(codigo_python, language="python")
+
+st.write('')
+
 st.image("./images/grafico1.png")
 
 codigo_python = """
