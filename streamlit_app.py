@@ -64,7 +64,7 @@ dfbarrios
 st.code(codigo_python, language="python")
 #G R A F I C A C I O N
 
-st.write("# PROCESO DE ANALISIS")
+st.write("# PROCESO DE LIMPIEZA")
 
 st.write(""" 
 
