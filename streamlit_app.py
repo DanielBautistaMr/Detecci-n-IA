@@ -157,7 +157,7 @@ st.code(codigo_python, language="python")
 
 st.write('')
 
-st.markdown('<p style="text-align:center;"><img src="./images/grafico1.png" alt="Gráfico 1"></p>', unsafe_allow_html=True)
+st.image("./images/grafico1.png")
 
 
 st.write('')
