@@ -439,15 +439,6 @@ st.write('')
 
 
 
-
-# ACA VA EL PREPROCESAMIENTO ------------------------------------------ CRISTIAN
-
-
-
-
-
-#ACA VA EL MODELO ------------------------------------------------------- KEVIN
-
 st.markdown("#  CONCLUSIONES 🦾 ")
 
 st.markdown("1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia y ademas en 2023 se ve que pocos delitos ya que la base de datos de donde sacamos la informacion solo la toma hasta julio. 🥺")
@@ -515,6 +506,26 @@ modeloBA.score(X_test,y_test)*100
 """
 st.code(codigo_python, language="python")
 
+
+st.subheader('Matriz')
+
+codigo_python = """
+#confusion_matrix con los datos de prueba
+y_predict=modeloBA.predict(X_test)
+print(y_test.head(20))
+print(pd.DataFrame(y_predict).head(20))
+
+#matrix de confusión para analizar los errores de predicción
+matrix=confusion_matrix(y_test,y_predict,labels=modeloBA.classes_)
+displaymatrix=ConfusionMatrixDisplay(confusion_matrix=matrix,display_labels=modeloBA.classes_)
+displaymatrix.plot(xticks_rotation='vertical')
+
+"""
+st.code(codigo_python, language="python")
+
+st.write('')
+st.image("./images/graficar11.png")
+st.write('')
 
 
 
