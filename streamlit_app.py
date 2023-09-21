@@ -151,6 +151,8 @@ plt.show()
 """
 
 st.code(codigo_python, language="python")
+st.write('')
+
 st.image("./images/grafico2.png")
 
 codigo_python = """
@@ -161,6 +163,8 @@ sns.regplot(x=cantidadxañosin2023.index,y=cantidadxañosin2023["DESCRIPCION_CON
 """
 
 st.code(codigo_python, language="python")
+st.write('')
+
 st.image("./images/grafico3.png")
 
 st.write("Intentamos encontrar con regresión encontrar relacion entre dos variables:")
