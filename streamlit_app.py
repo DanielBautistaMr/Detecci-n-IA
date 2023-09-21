@@ -424,8 +424,12 @@ codigo_python = """
 # La ruta '/content/drive/MyDrive/Delitos proyecto/Delito Bucaramanga_preprocesar.csv' especifica la ubicación
 # y el nombre del archivo CSV en el que se guardarán los datos.
 df.to_csv('/content/drive/MyDrive/Delitos proyecto/Delito Bucaramanga_preprocesar.csv')
-
 """
+st.write('')
+
+st.code(codigo_python, language="python")
+
+st.write('')
 
 
 
