@@ -72,27 +72,27 @@ st.write("""
 El dataset importado no a sido claramente filtrado y limpiado aqui hay algunas razones para hacerlo: 
 
 
-1.Minimización de sesgos: La limpieza de datos puede ayudar a identificar y mitigar sesgos en el dataset, lo que es fundamental para obtener resultados justos y equitativos en análisis y modelos. 
+1.Minimización de sesgos: La limpieza de datos puede ayudar a identificar y mitigar sesgos en el dataset, lo que es fundamental para obtener resultados justos y equitativos en análisis y modelos. 📉
 
-2.Precisión de los resultados: Eliminar datos incorrectos o inconsistentes mejora la precisión de los análisis y modelos.
+2.Precisión de los resultados: Eliminar datos incorrectos o inconsistentes mejora la precisión de los análisis y modelos.😑
 
-3.Reducción de ruido: La eliminación de valores atípicos y datos irrelevantes reduce el ruido en los datos.
+3.Reducción de ruido: La eliminación de valores atípicos y datos irrelevantes reduce el ruido en los datos. 💥
 
-4.Conformidad con requisitos: Preparar los datos adecuadamente asegura que cumplan con los requisitos técnicos y legales.
+4.Conformidad con requisitos: Preparar los datos adecuadamente asegura que cumplan con los requisitos técnicos y legales.👨🏿‍⚖️
 
-5.Mejora de la interpretación: Datos limpios facilitan la interpretación de los resultados y la toma de decisiones informadas.
+5.Mejora de la interpretación: Datos limpios facilitan la interpretación de los resultados y la toma de decisiones informadas. 📢
 
-6.Eficiencia computacional: Reduce la carga de procesamiento y acelera la velocidad de análisis y modelado.
+6.Eficiencia computacional: Reduce la carga de procesamiento y acelera la velocidad de análisis y modelado. 🛜
 
-7.Mejora la generalización: Evita el sobreajuste al eliminar datos que pueden confundir a los modelos.
+7.Mejora la generalización: Evita el sobreajuste al eliminar datos que pueden confundir a los modelos. ❌
 
-8.Consistencia: Garantiza que las variables tengan el mismo formato y unidad, lo que facilita la comparación.
+8.Consistencia: Garantiza que las variables tengan el mismo formato y unidad, lo que facilita la comparación. 🙏🏽
 
-9.Confianza en los datos: Incrementa la confianza en los resultados y la credibilidad de los informes.
+9.Confianza en los datos: Incrementa la confianza en los resultados y la credibilidad de los informes. 😸
 
-10.Protección de la privacidad: Elimina información sensible o identificable para proteger la privacidad de los individuos.
+10.Protección de la privacidad: Elimina información sensible o identificable para proteger la privacidad de los individuos. 🕵🏿‍♀️
 
-11.Facilita la colaboración: Datos limpios son más fáciles de compartir y colaborar en análisis interdisciplinarios.
+11.Facilita la colaboración: Datos limpios son más fáciles de compartir y colaborar en análisis interdisciplinarios. 👨‍👩‍👧
 
 """)
 
@@ -135,6 +135,8 @@ cantidadaño=df.groupby(df["FECHA_HECHO"].dt.year)["DESCRIPCION_CONDUCTA"].count
 cantidadaño
 """
 st.code(codigo_python, language="python")
+
+st.subheader("Cantidad de delitos")
 
 st.write("Comenzamos graficando los datos para ver sus relaciones y asi analizarlo")
 codigo_python = """
