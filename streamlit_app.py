@@ -398,18 +398,18 @@ df.to_csv('/content/drive/MyDrive/Delitos proyecto/Delito Bucaramanga_preprocesa
 # Conclusiones
 
 # Agrega emojis y estilos de fuente personalizados
-st.markdown("#  *CONCLUSIONES * ")
+st.markdown("#  CONCLUSIONES 🦾 ")
 
-st.markdown("1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia.")
+st.markdown("1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia. 🥺")
 
-st.markdown("2. El barrio donde mas hay delitos es en el centro.")
+st.markdown("2. El barrio donde mas hay delitos es en el centro. 😮")
 
-st.markdown("3. El delito mas usual es el hurto a personas.")
+st.markdown("3. El delito mas usual es el hurto a personas. 📱")
 
-st.markdown("4. El genero que mas se ve afectado por los delitos en el femenino.")
+st.markdown("4. El genero que mas se ve afectado por los delitos en el femenino. 🤦‍♀️")
 
-st.markdown("5. Con el 58,6% el rango de edades más afectadas es la adultez, entre 27-59 años.")
+st.markdown("5. Con el 58,6% el rango de edades más afectadas es la adultez, entre 27-59 años. 👴🏿")
 
-st.markdown("6. El arma más utilizada es la blanca cortopunzante, la mayoria de delitos se cometen a las 12pm de la noche y las victimas normalmente van a pie.")
+st.markdown("6. El arma más utilizada es la blanca cortopunzante, la mayoria de delitos se cometen a las 12pm de la noche y las victimas normalmente van a pie. 🔪")
 
 
