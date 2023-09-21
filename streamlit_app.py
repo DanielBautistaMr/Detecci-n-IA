@@ -50,6 +50,25 @@ df=pd.read_csv('/content/drive/MyDrive/Delitos proyecto/delitos_bucaramanga.csv'
 df
 """
 st.code(codigo_python, language="python")
+
+st.write("""Se conecta Drive con el google colab para poder aceder a los datos subidos en 
+
+1.   Elemento de la lista
+2.   Elemento de la lista
+
+este""")
+codigo_python = """
+from google.colab import drive
+drive.mount('/content/drive')
+df=pd.read_csv('/content/drive/MyDrive/Delitos proyecto/delitos_bucaramanga.csv')
+df
+
+dfbarrios=pd.read_csv('https://raw.githubusercontent.com/adiacla/bigdata/master/ubicacion_comuna.csv',encoding='utf-8')
+dfbarrios
+
+#Archivo compartido para poder sectorizar por latitud y longitud para poder graficar en el mapa
+"""
+st.code(codigo_python, language="python")
 #G R A F I C A C I O N
 st.write(" Las graficas nos muestran los datos de una manera mas entendible y este es el momento de usarlos:")
 codigo_python = """
@@ -58,13 +77,62 @@ fig,ax,=plt.subplots()
 ax.bar(cantidadaño.index,cantidadaño["DESCRIPCION_CONDUCTA"])
 """
 st.code(codigo_python, language="python")
-# 
-st.write(" Se muestra la relacion entre la cantidad de casos respecto a cada año")
+
+
+st.write("Se arreglan los datasets y se limpian: ")
 codigo_python = """
-#Graficamos la informacion de arriba en barras
+# Se muestra cuantas veces se repite un barrio en el data frame para comprender la distribución de datos en la columna de BARRIOS_HECHOS
+df.BARRIOS_HECHO.value_counts()
+
+# Se busca las concidencias en los data frames df y dfbarrios (data frame donde esta la latitud y la longitud)
+# para asi fusionarlas en una sola la cual es "NOM_COM"y asi que los dos data frames queden en solo uno
+df = pd.merge(df, dfbarrios, on="NOM_COM")
+
+# Se elimina 'Unnamed: 0' y 'loc' del DataFrame 'df'.
+# El argumento 'axis=1' especifica que las columnas deben eliminarse en lugar de las filas.
+# El argumento 'inplace=True' indica que la operación debe realizarse directamente en el DataFrame 'df'.
+df.drop(['Unnamed: 0', 'loc'], axis=1, inplace=True)
+
+# Se crea una nueva columna llamada "FECHA COMPLETA" la cual es la combinacion entre "FECHA_HECHO" y "HORA_HECHO",
+# colocando un espacion en blanco entre las dos para asi porder ternerlos es un solo formato
+df['FECHA_COMPLETA'] = df["FECHA_HECHO"] + ' ' + df["HORA_HECHO"]
+
+#Se el tipo de dato de la columna "FECHA_HECHO" en datetime
+
+df=df.astype({"FECHA_HECHO":"datetime64[ns]"})
+
+#Se convierte la columna "FECHA_HECHO" en modo datatime, utilizando el metodo 'pd.to_datetime()'
+#ademas se utiliza el argumento 'format="DD/MM/YYYY"' para especifircar el formato de la fecha original
+#siendo este un dia con dos digitos , mes con dos digitos y el año con 4.
+
+df["FECHA_HECHO"] = pd.to_datetime(df["FECHA_HECHO"], format="DD/MM/YYYY")
+
+#Se calcula la cantidad de delitos por año en la columna "FECHA_HECHO"
+# y almacenando los resultados en un DataFrame llamado "cantidadaño"
+#.groupby(df["FECHA_HECHO"].dt.year)["DESCRIPCION_CONDUCTA"].count() agrupan los datos en función del año
+#y los cuenta, .to_frame() convierte la serie resultante en un DataFrame
+
+cantidadaño=df.groupby(df["FECHA_HECHO"].dt.year)["DESCRIPCION_CONDUCTA"].count().to_frame()
+cantidadaño
+"""
+st.code(codigo_python, language="python")
+
+st.write("Comenzamos graficando los datos para ver sus relaciones y asi analizarlo")
+codigo_python = """
+#Se hace una grafica de barras a partir de los datos contenidos en "cantidadaño"
+#para asi poder analisar mejor los datos y sacar conclusiones
 fig,ax,=plt.subplots()
 ax.bar(cantidadaño.index,cantidadaño["DESCRIPCION_CONDUCTA"])
+ax.set_xlabel("Años")
+ax.set_ylabel("Cantidad de Delitos")
+plt.show()
+
+#De la grafica sacamos las siguientes conclusiones:
+#1. Los delitos tienden a aumentar a medida que pasan los años
+#2. En el 2020 ocurrio una baja esto se concluse que ocurrio por la pandemia
+#3. El año 2023 se ve tan bajo ya que los datos utilizados solo se toman hasta julio del 2023
 """
+
 st.code(codigo_python, language="python")
 st.image("2grafico.jpg")
 #
