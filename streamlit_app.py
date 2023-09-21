@@ -9,7 +9,7 @@ st.write(f"Te presentaremos el caso de estudio desde el analisis hasta la creaci
 # Imagen
 st.image("./images/intro.jpeg")
 # Código de ejemplo
-st.write("# ANALISIS")
+st.write("# ANALISIS 🧐")
 
 
 st.write("Todo los datos salieron del siguiente DataSet: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz")
@@ -458,7 +458,7 @@ st.markdown("7. El arma más utilizada es la blanca cortopunzante, la mayoria de
 st.markdown("8. No existe una gran diferencia entre los que van en motocicleta a los que van en un vehiculo. 👻")
 
 
-st.write("#  PREPROCESSAMIENTO ")
+st.write("#  PREPROCESSAMIENTO 🤔")
 
 st.write('Se muestra el modelo escogido y su funcionamiento como el codigo ')
 st.write('Librerias usadas: ')
@@ -546,7 +546,7 @@ st.write("""se escogio debido a que su accuracy nos dio mayor exactitud a compar
 Otros motivos son porque en general es bueno para predecir cosas con precisión, incluso cuando tenemos muchos datos para mirar. Además, es bueno para tratar con datos desequilibrados y no exagerar las predicciones.""")
 
 
-st.write("#  MODELO EN FUNCIONAMIENTO ")
+st.write("#  MODELO EN FUNCIONAMIENTO 🤖 ")
 
 st.write('El siguiente video muestra el video de la IA usando el modeloBA escogido despues del preprocessamiento: ')
 
