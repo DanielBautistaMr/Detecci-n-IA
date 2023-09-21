@@ -154,6 +154,8 @@ st.code(codigo_python, language="python")
 st.write('')
 
 st.image("./images/grafico2.png")
+st.write('')
+
 
 codigo_python = """
 #Se utiliza Seaborn para crear un gráfico de regresión para asi poder ver la tendencia que representa
@@ -166,18 +168,92 @@ st.code(codigo_python, language="python")
 st.write('')
 
 st.image("./images/grafico3.png")
+st.write('')
 
-st.write("Intentamos encontrar con regresión encontrar relacion entre dos variables:")
+st.write("Se hace el calculo con el fin de sacar un mapa de calor")
 codigo_python = """
-#Usamos la libreria Seaborn, que pueda mostrar la relacion entre dos variables
-# X, representa los años
-# Y, representa la cantidad de casos
-#line_kws: La apariencia de la regresion lineal
-sns.regplot(x=cantidadxañosin2023.index,y=cantidadxañosin2023["DESCRIPCION_CONDUCTA"],scatter_kws={"color":"purple", "alpha":0.8},line_kws={"color":"green","alpha":0.8})
+# reasignar el nombre de algunas comunas al valor "CENTRO".
+
+# Diccionario que define los mapeos de nombres originales a los nuevos nombres.
+# Las claves representan los nombres originales de las comunas que queremos reemplazar.
+# Los valores son el nombre "CENTRO" al que queremos reasignar.
+
+comuna={'SIN REGISTRO':'CENTRO','CORREGIMIENTO 3':'CENTRO','CORREGIMIENTO 2':'CENTRO','CORREGIMIENTO 1':'CENTRO'}
+
+# Usamos el método replace de pandas para realizar el reemplazo de nombres.
+# La opción regex=True nos permite hacer un reemplazo basado en expresiones regulares.
+# El argumento inplace=True indica que queremos hacer el cambio directamente en el DataFrame original
+
+df.NOM_COM.replace(comuna,regex=True,inplace=True)
+
+
+# Divide la columna 'localizacion' del DataFrame df en dos nuevas columnas.
+# La división se basa en el delimitador ','.
+# El argumento expand=True indica que queremos dividir la cadena en varias columnas.
+# Renombra las dos columnas resultantes a 'lat' y 'lon'.
+
+df_localizacion=df.localizacion.str.split(',',expand=True)
+df_localizacion=df_localizacion.rename(columns={0:'lat',1:'lon'})
+df_localizacion=df_localizacion.replace('\[','',regex=True).replace(']','',regex=True).astype(float)
+
+
+# Muestra los tipos de datos de las columnas del DataFrame df_localizacion.
+df_localizacion.dtypes
+
+
+#concatear el df con las coordenadas
+df=pd.concat([df,df_localizacion],axis=1)
+df
+
+#Se eliminan las columnas de localizacion y localidad puesto que se vuelven irrelevantes debido a que anteriormente se crearon las columas de latitud y longitud
+
+df.drop(['localizacion','LOCALIDAD'],axis=1,inplace=True)
+
+
+
+# Agrupa el DataFrame original, df, por 'NOM_COM', 'lat' y 'lon'.
+# Luego, cuenta la cantidad de 'DESCRIPCION_CONDUCTA' para cada grupo,
+# lo que proporciona la cantidad de delitos reportados para cada comuna y ubicación.
+cantidadComuna = df.groupby(['NOM_COM', 'lat', 'lon'])['DESCRIPCION_CONDUCTA'].count().to_frame()
+
+# Extrae el nombre de la comuna (NOM_COM), latitud (lat) y longitud (lon) desde el índice
+# multindex y los asigna como columnas separadas.
+cantidadComuna['NOM_COM'] = cantidadComuna.index.get_level_values(0)
+cantidadComuna['lat'] = cantidadComuna.index.get_level_values(1)
+cantidadComuna['lon'] = cantidadComuna.index.get_level_values(2)
+
+# Restablece el índice del DataFrame para que el índice sea numérico
+cantidadComuna = cantidadComuna.reset_index(drop=True)
+cantidadComuna
+"""
+
+st.code(codigo_python, language="python")
+
+st.write('')
+
+
+st.write("Mapa de calor: ")
+codigo_python = """
+#Se muestra el mapa de densidad, respecto a las coordenadas y la cantidad de delitos por cada una de estas, esto ayuda a ver graficamente donde se han cometidos los delitos registrados en el archivo csv
+
+fig = px.density_mapbox(cantidadComuna, lat = 'lat', lon = 'lon',z='DESCRIPCION_CONDUCTA',
+                        radius = 50,
+                        hover_name='NOM_COM',
+                        color_continuous_scale='rainbow',
+                        center = dict(lat = 7.12539, lon = -73.1198),
+                        zoom = 12,
+                        mapbox_style = 'open-street-map')
+fig.show()
 """
 st.code(codigo_python, language="python")
+
+st.write('')
+
 st.image("3grafico.jpg")
-#
+
+st.write('')
+
+
 st.write("Mostramos un mapa de calor, despues de haber modificado nuestro DataFrame para que nos diera las coordenadas:")
 codigo_python = """
 fig = px.density_mapbox(cantidadComuna, lat = 'lat', lon = 'lon',z='DESCRIPCION_CONDUCTA',
