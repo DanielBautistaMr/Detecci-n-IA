@@ -63,7 +63,32 @@ dfbarrios
 """
 st.code(codigo_python, language="python")
 #G R A F I C A C I O N
-st.write(" Las graficas nos muestran los datos de una manera mas entendible y este es el momento de usarlos:")
+st.write(""" 
+#Proceso de limpieza
+
+1.El dataset importado no a sido claramente limpio y aqui hay algunas razones para hacerlo:
+
+2.Precisión de los resultados: Eliminar datos incorrectos o inconsistentes mejora la precisión de los análisis y modelos.
+
+3.Reducción de ruido: La eliminación de valores atípicos y datos irrelevantes reduce el ruido en los datos.
+
+4.Conformidad con requisitos: Preparar los datos adecuadamente asegura que cumplan con los requisitos técnicos y legales.
+
+5.Mejora de la interpretación: Datos limpios facilitan la interpretación de los resultados y la toma de decisiones informadas.
+
+6.Eficiencia computacional: Reduce la carga de procesamiento y acelera la velocidad de análisis y modelado.
+
+7.Mejora la generalización: Evita el sobreajuste al eliminar datos que pueden confundir a los modelos.
+
+8.Consistencia: Garantiza que las variables tengan el mismo formato y unidad, lo que facilita la comparación.
+
+9.Confianza en los datos: Incrementa la confianza en los resultados y la credibilidad de los informes.
+
+10.Protección de la privacidad: Elimina información sensible o identificable para proteger la privacidad de los individuos.
+
+11.Facilita la colaboración: Datos limpios son más fáciles de compartir y colaborar en análisis interdisciplinarios.
+
+""")
 codigo_python = """
 #Graficamos la informacion de arriba en barras
 fig,ax,=plt.subplots()
