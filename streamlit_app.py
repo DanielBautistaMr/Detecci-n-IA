@@ -1,16 +1,9 @@
 import streamlit as st
 # Título
-st.title("Delitos en Bucaramanga y su Analisis de Datos")
+st.title("Creacion Proyecto Deteccion de Delitos Bucaramanga")
 # Introducción
-st.write("""
-Esta es la representacion, explicacion y conclusiones despues de analizar los delitos cometidos en Bucaramanga Grupo: 
-         Andres Felipe Jaimes Rico Manuel Delgado Mantilla.
-""")
-nombre_lector = st.text_input("Introduce tu nombre", "Juan")
-if nombre_lector:
-    st.write(f"Bienvenido, {nombre_lector}!Gracias por tomarte el tiempo de leer este analisis de datos sobre los delitos cometidos en Bucaramanga y asi conocer esta problemática más cerca.")
-else:
-    st.write("Por favor, introduce tu nombre arriba para una bienvenida personalizada.")
+st.write(f"Hola :D te vamos a presentar el caso de estudio desde el analisis hasta la creacion de un modelo de IA para la deteccion de delitos")
+
 # Imagen
 st.image("./images/intro.jpeg")
 # Código de ejemplo
