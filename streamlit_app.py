@@ -1,6 +1,8 @@
 import streamlit as st
-# Título
-st.title("Creacion Proyecto Deteccion de Delitos Bucaramanga")
+
+# Título centrado
+st.markdown("<h1 style='text-align: center;'>Creacion Proyecto Deteccion de Delitos Bucaramanga</h1>", unsafe_allow_html=True)
+
 # Introducción
 st.write(f"Te presentaremos el caso de estudio desde el analisis hasta la creacion de un modelo de IA para la deteccion de delitos del grupo de Daniel Bautista, Kevin Llanos, Cristian Muñoz ")
 
