@@ -439,7 +439,7 @@ st.write('')
 
 
 
-st.subheader("#  CONCLUSIONES 🦾 ")
+st.write("#  CONCLUSIONES 🦾 ")
 
 
 st.markdown("1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia y ademas en 2023 se ve que pocos delitos ya que la base de datos de donde sacamos la informacion solo la toma hasta julio. ")
