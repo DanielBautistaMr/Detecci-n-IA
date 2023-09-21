@@ -520,16 +520,32 @@ matrix=confusion_matrix(y_test,y_predict,labels=modeloBA.classes_)
 displaymatrix=ConfusionMatrixDisplay(confusion_matrix=matrix,display_labels=modeloBA.classes_)
 displaymatrix.plot(xticks_rotation='vertical')
 
+#confusion_matrix con los datos de prueba
+y_predict=modeloBA.predict(X_test)
+print(y_test.head(20))
+print(pd.DataFrame(y_predict).head(20))
+
 """
 st.code(codigo_python, language="python")
 
 st.write('')
 st.image("./images/graficar11.png")
-st.write('')
+st.write('Se guardo el modelo .bin')
+codigo_python = """
+jb.dump(modeloBA,"/content/drive/MyDrive/Delitos proyecto/modeloBA.bin",compress=True)
+"""
+st.code(codigo_python, language="python")
+
+st.subheader('Matriz')
 
 
 
-st.markdown("#  MODELO INTELGENCIA ARTIFICIAL ")
+st.markdown("#  ¿Por que usar el modeloBA? ")
+
+st.write("""se escogio debido a que su accuracy nos dio mayor exactitud a comparacion de otros modelo sus resultados fueron mayores.
+
+Otros motivos son porque en general es bueno para predecir cosas con precisión, incluso cuando tenemos muchos datos para mirar. Además, es bueno para tratar con datos desequilibrados y no exagerar las predicciones.""")
+
 
 st.write('El siguiente video muestra el video de la IA usando el modeloBA escogido despues del preprocessamiento: ')
 
