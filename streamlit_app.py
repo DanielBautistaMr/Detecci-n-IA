@@ -12,7 +12,7 @@ if nombre_lector:
 else:
     st.write("Por favor, introduce tu nombre arriba para una bienvenida personalizada.")
 # Imagen
-st.image("./images/introduccion.jpeg")
+st.image("./images/intro.jpeg")
 # Código de ejemplo
 st.write("Vamos a comenzar a desglosar este Analisis :)")
 st.write("# ANALISIS")
