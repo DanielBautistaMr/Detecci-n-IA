@@ -9,9 +9,6 @@ st.image("./images/intro.jpeg")
 # Código de ejemplo
 st.write("Comencemos a detallar este estudio: ")
 st.write("# ANALISIS")
-
-st.code(codigo_python, language="python")
-st.write("Todo los datos salieron del siguiente DataSet: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz")
 codigo_python = """
   #1 #TRATAMIENTO DE DATOS
 import pandas as pd
@@ -32,6 +29,9 @@ import urllib
 
 import plotly.express as px
 """
+st.code(codigo_python, language="python")
+st.write("Todo los datos salieron del siguiente DataSet: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz")
+
 st.code(codigo_python, language="python")
 st.write("En el tratamiento de datos necesitamos unir algunas columnas, quitar las vacias etc")
 codigo_python = """
