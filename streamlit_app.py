@@ -374,6 +374,59 @@ st.write('')
 st.image("./images/grafico7.png")
 st.write('')
 
+codigo_python = """
+frecuencias_genero = df['GENERO'].value_counts()
+frecuencias_genero
+
+plt.figure(figsize=(5, 5))
+plt.pie(frecuencias_genero, labels=frecuencias_genero.index, autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.title('Frecuencia GENERO')
+plt.show()
+"""
+st.code(codigo_python, language="python")
+
+st.write('')
+st.image("./images/grafico9.png")
+st.write('')
+
+codigo_python = """
+#¿ cuál es la edad más afectada?
+frecuencias_edad = df['EDAD'].value_counts()
+frecuencias_edad
+
+df.EDAD.replace('SIN REGISTRO', np.nan ,inplace=True,regex=True)
+#Reemplaza los valores sin registro por valor NAN
+
+df['EDAD'].fillna(30, inplace=True)
+df['EDAD']=df['EDAD'].astype(int)
+df.isna().sum()
+
+# Define los rangos de edades y la lista de etiquetas para el gráfico
+
+bins = [-np.inf, 6, 12, 19, 26,60,np.inf]
+names = ['PRIMERA INFANCIA','INFANCIA','ADOLECENCIA','JUVENTUD','ADULTEZ','PERSONA MAYOR']
+
+df['RangoEdad'] = pd.cut(df['EDAD'], bins, labels=names)
+
+cantidadporrango=df['RangoEdad'].value_counts()
+
+# Crea el gráfico de pastel utilizando los rango de edades
+plt.figure(figsize=(13, 12))
+plt.pie(cantidadporrango, labels=cantidadporrango.index, autopct='%1.1f%%', pctdistance=0.8, startangle=140, labeldistance=1.05)
+plt.axis('equal')
+plt.title('Frecuencia de Edades')
+plt.show()
+
+#De este grafico se concluye que entre mas edad se tiene mas problabilidad hay de que sea victima
+#de un delito
+"""
+st.code(codigo_python, language="python")
+
+st.write('')
+st.image("./images/grafico10.png")
+st.write('')
+
 
 codigo_python = """
 # Esta línea de código guarda el DataFrame 'df' en un archivo CSV en la ubicación especificada.
