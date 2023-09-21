@@ -248,7 +248,7 @@ fig.show()
 st.code(codigo_python, language="python")
 
 st.write('')
-st.image("./images/aaaaa.jpg")
+st.image("./images/aa.png")
 st.write('')
 
 
