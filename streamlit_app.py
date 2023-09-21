@@ -2,7 +2,7 @@ import streamlit as st
 # Título
 st.title("Creacion Proyecto Deteccion de Delitos Bucaramanga")
 # Introducción
-st.write(f"Hola :p hoy te vamos a presentar el caso de estudio desde el analisis hasta la creacion de un modelo de IA para la deteccion de delitos")
+st.write(f"Te presentaremos el caso de estudio desde el analisis hasta la creacion de un modelo de IA para la deteccion de delitos del grupo de Daniel Bautista, Kevin Llanos, Cristian Muñoz ")
 
 # Imagen
 st.image("./images/intro.jpeg")
