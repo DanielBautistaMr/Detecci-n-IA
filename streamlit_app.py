@@ -467,6 +467,11 @@ st.markdown("7. El arma más utilizada es la blanca cortopunzante, la mayoria de
 st.markdown("8. No existe una gran diferencia entre los que van en motocicleta a los que van en un vehiculo. 👻")
 
 
+
+st.markdown("#  MODELO INTELGENCIA ARTIFICIAL ")
+
+st.write('El siguiente video muestra el video de la IA usando el modeloBA escogido despues del preprocessamiento: ')
+
 # Cargar el video desde el sistema local
 video_file = open("./images/vide.mov", "rb")
 video_bytes = video_file.read()
