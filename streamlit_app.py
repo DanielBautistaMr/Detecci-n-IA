@@ -249,7 +249,7 @@ st.code(codigo_python, language="python")
 
 st.write('')
 
-st.image("3grafico.jpg")
+st.image("newplot.png")
 
 st.write('')
 
