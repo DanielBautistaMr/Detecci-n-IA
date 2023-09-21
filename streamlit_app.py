@@ -7,7 +7,6 @@ st.write(f"Te presentaremos el caso de estudio desde el analisis hasta la creaci
 # Imagen
 st.image("./images/intro.jpeg")
 # Código de ejemplo
-st.write("Comencemos a detallar este estudio: ")
 st.write("# ANALISIS")
 
 
@@ -38,7 +37,12 @@ import plotly.express as px
 st.code(codigo_python, language="python")
 
 
-st.write("En el tratamiento de datos necesitamos unir algunas columnas, quitar las vacias etc")
+st.write("""Se conecta Drive con el google colab para poder aceder a los datos subidos en 
+
+1.   Elemento de la lista
+2.   Elemento de la lista
+
+este""")
 codigo_python = """
 #La biblioteca merge realiza fusion entre DataFrames
 df=pd.merge(df,dfbarrios,on="NOM_COM")
