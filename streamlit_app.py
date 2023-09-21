@@ -248,27 +248,13 @@ fig.show()
 st.code(codigo_python, language="python")
 
 st.write('')
-st.image("./images/newplot.png")
+st.image("./images/aaaaa.jpg")
 st.write('')
 
 
 
 
 
-st.write("Mostramos un mapa de calor, despues de haber modificado nuestro DataFrame para que nos diera las coordenadas:")
-codigo_python = """
-fig = px.density_mapbox(cantidadComuna, lat = 'lat', lon = 'lon',z='DESCRIPCION_CONDUCTA',
-                        radius = 50,
-                        hover_name='NOM_COM',
-                        color_continuous_scale='rainbow',
-                        center = dict(lat = 7.12539, lon = -73.1198),
-                        zoom = 12,
-                        mapbox_style = 'open-street-map')
-fig.show()
-"""
-st.code(codigo_python, language="python")
-st.image("4grafico.jpg")
-#
 st.write("Mostramos un mapa de calor, despues de haber modificado nuestro DataFrame para que nos diera las coordenadas:")
 codigo_python = """
 frecuencias_barrios_filtradas = frecuencias_barrios[frecuencias_barrios >= 1000] #filtramos
