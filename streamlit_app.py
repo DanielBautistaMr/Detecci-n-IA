@@ -14,31 +14,29 @@ else:
 # Imagen
 st.image("./images/intro.jpeg")
 # Código de ejemplo
-st.write("Vamos a comenzar a desglosar este Analisis :)")
+st.write("Comencemos a detallar este estudio: ")
 st.write("# ANALISIS")
-st.write("Importamos las librerias necesarias")
-codigo_python = """
-import pandas as pd
-import numpy as np
-import os
-#Graficadores
-import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
-import seaborn as sns
-import urllib
-import plotly.express as px
-"""
+
 st.code(codigo_python, language="python")
-st.write("##Necesitamos datos asi que los traemos, estos datos son suministrados por un ente gubernamental provenientes de este link: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz")
+st.write("Todo los datos salieron del siguiente DataSet: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz")
 codigo_python = """
+  #1 #TRATAMIENTO DE DATOS
 import pandas as pd
 import numpy as np
+
+#SISTEMA OPERATIVO
 import os
-#Graficadores
+
+#GRAFICO
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import seaborn as sns
+
+#LEER ARCHIVOS DE WEB
 import urllib
+
+#MAPA DE CALOR
+
 import plotly.express as px
 """
 st.code(codigo_python, language="python")
