@@ -448,9 +448,6 @@ st.write('')
 
 #ACA VA EL MODELO ------------------------------------------------------- KEVIN
 
-# Conclusiones
-
-# Agrega emojis y estilos de fuente personalizados
 st.markdown("#  CONCLUSIONES 🦾 ")
 
 st.markdown("1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia y ademas en 2023 se ve que pocos delitos ya que la base de datos de donde sacamos la informacion solo la toma hasta julio. 🥺")
@@ -469,3 +466,10 @@ st.markdown("7. El arma más utilizada es la blanca cortopunzante, la mayoria de
 
 st.markdown("8. No existe una gran diferencia entre los que van en motocicleta a los que van en un vehiculo. 👻")
 
+
+# Cargar el video desde el sistema local
+video_file = open("./images/vide.mov", "rb")
+video_bytes = video_file.read()
+
+# Mostrar el video
+st.video(video_bytes)
