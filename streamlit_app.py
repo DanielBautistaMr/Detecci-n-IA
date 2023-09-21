@@ -136,7 +136,7 @@ cantidadaño
 """
 st.code(codigo_python, language="python")
 
-st.subheader("Cantidad de delitos")
+st.subheader("Cantidad de delitos 😵")
 
 st.write("Comenzamos graficando los datos para ver sus relaciones y asi analizarlo")
 codigo_python = """
@@ -191,7 +191,9 @@ st.write('')
 st.image("./images/grafico3.png")
 st.write('')
 
-st.write("Se hace el calculo con el fin de sacar un mapa de calor")
+st.subheader("Mapa de calor 🔥")
+
+st.write("Se la limpieza de los datos separandolos")
 codigo_python = """
 # reasignar el nombre de algunas comunas al valor "CENTRO".
 
@@ -272,6 +274,7 @@ st.write('')
 st.image("./images/aa.png")
 st.write('')
 
+st.subheader("Frecuencias Barrios 🏡")
 
 st.write("Comienza el analisis y la creacion de nuevas preguntas y graficas")
 codigo_python = """
@@ -295,51 +298,7 @@ st.write('')
 st.image("./images/grafico4.png")
 st.write('')
 
-codigo_python = """
-# Agrupa el DataFrame original, df, por la columna 'BARRIOS_HECHO'.
-# Luego, cuenta la cantidad de 'DESCRIPCION_CONDUCTA' para cada barrio,
-# proporcionando el número de delitos reportados para cada uno.
-
-
-cantidadbarrio=df.groupby(df["BARRIOS_HECHO"])["DESCRIPCION_CONDUCTA"].count().to_frame()
-cantidadbarrio
-
-df.isnull().sum()
-
-
-#Muestra la cantidad de datos faltantes por categoria
-
-#Se cuenta la cantidad sucesos por delito
-
-frecuencias_delito = df['DELITO_SOLO'].value_counts()
-frecuencias_delito
-
-frecuencias_delito.index
-
-#Se grafica la frecuencia con la que se repite un delito para poder vizualizarlos mejor y asi poder
-#sacar mejores conclusiones
-
-plt.figure(figsize=(19, 19))
-frecuencias_delito.plot(kind='barh', color='skyblue')
-plt.title('Frecuencia de delito')
-plt.xlabel('Frecuencia')
-plt.ylabel('Delito')
-plt.tight_layout()
-plt.show()
-
-#Las conclusiones que se sacas son las siguientes:
-#La mayoria de delitos son de hurto personal
-#Hay muchos delitos los cuales ocurren tan poco que al momento
-#de predecir su probabilidad no van a variar tanto haciendo que no tenga peso
-
-
-
-"""
-st.code(codigo_python, language="python")
-
-st.write('')
-st.image("./images/grafico5.png")
-st.write('')
+st.subheader("Frecuencias Localidad 📟")
 
 
 codigo_python = """
@@ -359,6 +318,8 @@ st.code(codigo_python, language="python")
 st.write('')
 st.image("./images/grafico6.png")
 st.write('')
+
+st.subheader("Frecuencias de Hora 🕐")
 
 
 codigo_python = """
@@ -395,6 +356,9 @@ st.write('')
 st.image("./images/grafico7.png")
 st.write('')
 
+st.subheader("Frecuencias de Genero 👫")
+
+
 codigo_python = """
 frecuencias_genero = df['GENERO'].value_counts()
 frecuencias_genero
@@ -410,6 +374,9 @@ st.code(codigo_python, language="python")
 st.write('')
 st.image("./images/grafica9.png")
 st.write('')
+
+st.subheader("Frecuencias de Edad 👴👵")
+
 
 codigo_python = """
 #¿ cuál es la edad más afectada?
@@ -447,6 +414,8 @@ st.code(codigo_python, language="python")
 st.write('')
 st.image("./images/graficar10.png")
 st.write('')
+
+st.subheader("Guardar el CSV 💾")
 
 
 codigo_python = """
