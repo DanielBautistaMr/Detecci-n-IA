@@ -548,7 +548,7 @@ st.write("""Se escogio debido a que su accuracy nos dio mayor exactitud a compar
 Otros motivos son porque en general es bueno para predecir cosas con precisión, incluso cuando tenemos muchos datos para mirar. Además, es bueno para tratar con datos desequilibrados y no exagerar las predicciones.""")
 
 
-st.write("#  PREDICCION 🤔")
+st.markdown("#  PREDICCION 🤔")
 
 st.write('Librerias usadas: ')
 
