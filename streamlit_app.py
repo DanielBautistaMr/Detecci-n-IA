@@ -6,7 +6,7 @@ st.write("""
 Esta es la representacion, explicacion y conclusiones despues de analizar los delitos cometidos en Bucaramanga Grupo: 
          Andres Felipe Jaimes Rico Manuel Delgado Mantilla.
 """)
-nombre_lector = st.text_input("Introduce tu nombre", "Nombre")
+nombre_lector = st.text_input("Introduce tu nombre", "Juan")
 if nombre_lector:
     st.write(f"Bienvenido, {nombre_lector}!Gracias por tomarte el tiempo de leer este analisis de datos sobre los delitos cometidos en Bucaramanga y asi conocer esta problemática más cerca.")
 else:
