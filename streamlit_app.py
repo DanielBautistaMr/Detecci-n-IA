@@ -1,92 +1,225 @@
 import streamlit as st
-
 # Título
-st.title("Análisis del Crimen en Bucaramanga")
-
+st.title("Delitos en Bucaramanga y su Analisis de Datos")
 # Introducción
 st.write("""
-Visualización y deducciones tras examinar los delitos registrados en Bucaramanga. Equipo:
-Andres Felipe Jaimes Rico y Manuel Delgado Mantilla.
+Esta es la representacion, explicacion y conclusiones despues de analizar los delitos cometidos en Bucaramanga Grupo: 
+         Andres Felipe Jaimes Rico Manuel Delgado Mantilla.
 """)
-lector = st.text_input("Escribe tu nombre aquí", "Nombre del lector")
-
-if lector:
-    st.write(f"¡Hola, {lector}! Te agradecemos por interesarte en este estudio sobre criminalidad en Bucaramanga. Tu atención nos ayuda a entender mejor esta situación.")
+nombre_lector = st.text_input("Introduce tu nombre", "Nombre")
+if nombre_lector:
+    st.write(f"Bienvenido, {nombre_lector}!Gracias por tomarte el tiempo de leer este analisis de datos sobre los delitos cometidos en Bucaramanga y asi conocer esta problemática más cerca.")
 else:
-    st.write("Por favor, ingresa tu nombre en el campo superior para una saludo personalizado.")
-
+    st.write("Por favor, introduce tu nombre arriba para una bienvenida personalizada.")
+# Imagen
+st.("analisis de datos delitos bga.png")
 # Código de ejemplo
-st.write("Comencemos a detallar este estudio:")
-st.write("# DESGLOSE")
-st.write("Primero, cargamos las bibliotecas necesarias:")
-codigo_python1 = """
+st.write("Vamos a comenzar a desglosar este Analisis :)")
+st.write("# ANALISIS")
+st.write("Importamos las librerias necesarias")
+codigo_python = """
 import pandas as pd
 import numpy as np
+import os
+#Graficadores
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 import seaborn as sns
+import urllib
 import plotly.express as px
 """
-st.code(codigo_python1, language="python")
-st.write("##A continuación, traemos nuestros datos. Estos son proporcionados por una autoridad oficial desde el siguiente enlace: [Enlace a datos](https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz)")
-st.code(codigo_python1, language="python")
-st.write("Para el procesamiento de los datos, realizamos algunos ajustes como combinar columnas, eliminar columnas innecesarias, entre otros.")
-codigo_python2 = """
-df = pd.merge(df, dfbarrios, on="NOM_COM")
-df.drop(['Unnamed: 0', 'loc'], axis=1, inplace=True)
-df['FECHA_COMPLETA'] = df["FECHA_HECHO"] + ' ' + df["HORA_HECHO"]
-cantidadaño = df.groupby(df["FECHA_HECHO"].dt.year)["DESCRIPCION_CONDUCTA"].count().to_frame()
+st.code(codigo_python, language="python")
+st.write("##Necesitamos datos asi que los traemos, estos datos son suministrados por un ente gubernamental provenientes de este link: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz")
+codigo_python = """
+import pandas as pd
+import numpy as np
+import os
+#Graficadores
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import seaborn as sns
+import urllib
+import plotly.express as px
 """
-st.code(codigo_python2, language="python")
-
-# Gráficas
-st.write("Las representaciones visuales nos permiten comprender mejor los datos. Veamos algunas gráficas:")
-
-codigo_python3 = """
-fig, ax = plt.subplots()
-ax.bar(cantidadaño.index, cantidadaño["DESCRIPCION_CONDUCTA"])
+st.code(codigo_python, language="python")
+st.write("En el tratamiento de datos necesitamos unir algunas columnas, quitar las vacias etc")
+codigo_python = """
+#La biblioteca merge realiza fusion entre DataFrames
+df=pd.merge(df,dfbarrios,on="NOM_COM")
+#Vamos a comenzar a eliminar columnas, el argumento es Unname:0 y loc, con el axis decimos que elimine la columna
+#inplcae=true, estamso diciendo que mdoifique el df y no cree otro
+df.drop(['Unnamed: 0','loc'],axis=1,inplace=True)
+#Aqui concatenamos fecha y hora y agregamos un espacio en blanco
+df['FECHA_COMPLETA'] = df["FECHA_HECHO"]+ ' ' + df["HORA_HECHO"]
+# Agrupamos por año
+#Por count agregamos cuantas veces aparece cada valor unico en la columna
+#Convertimos a DataFrame
+cantidadaño=df.groupby(df["FECHA_HECHO"].dt.year)["DESCRIPCION_CONDUCTA"].count().to_frame()
+cantidadaño
 """
-st.code(codigo_python3, language="python")
-
-st.write("Aquí se visualiza la relación entre la cantidad de incidentes y el año.")
-
-st.code(codigo_python3, language="python")
-
-st.write("Intentamos identificar la relación entre dos variables utilizando regresión:")
-
-codigo_python4 = """
-sns.regplot(x=cantidadxañosin2023.index, y=cantidadxañosin2023["DESCRIPCION_CONDUCTA"], scatter_kws={"color": "purple", "alpha": 0.8}, line_kws={"color": "green", "alpha": 0.8})
+st.code(codigo_python, language="python")
+#G R A F I C A C I O N
+st.write(" Las graficas nos muestran los datos de una manera mas entendible y este es el momento de usarlos:")
+codigo_python = """
+#Graficamos la informacion de arriba en barras
+fig,ax,=plt.subplots()
+ax.bar(cantidadaño.index,cantidadaño["DESCRIPCION_CONDUCTA"])
 """
-st.code(codigo_python4, language="python")
-
-st.write("Ahora visualizamos un mapa de calor basado en coordenadas que obtuvimos tras procesar nuestros datos:")
-
-codigo_python5 = """
-fig = px.density_mapbox(cantidadComuna, lat='lat', lon='lon', z='DESCRIPCION_CONDUCTA', radius=50, hover_name='NOM_COM', color_continuous_scale='rainbow', center=dict(lat=7.12539, lon=-73.1198), zoom=12, mapbox_style='open-street-map')
+st.code(codigo_python, language="python")
+# 
+st.write(" Se muestra la relacion entre la cantidad de casos respecto a cada año")
+codigo_python = """
+#Graficamos la informacion de arriba en barras
+fig,ax,=plt.subplots()
+ax.bar(cantidadaño.index,cantidadaño["DESCRIPCION_CONDUCTA"])
+"""
+st.code(codigo_python, language="python")
+st.("2grafico.jpg")
+#
+st.write("Intentamos encontrar con regresión encontrar relacion entre dos variables:")
+codigo_python = """
+#Usamos la libreria Seaborn, que pueda mostrar la relacion entre dos variables
+# X, representa los años
+# Y, representa la cantidad de casos
+#line_kws: La apariencia de la regresion lineal
+sns.regplot(x=cantidadxañosin2023.index,y=cantidadxañosin2023["DESCRIPCION_CONDUCTA"],scatter_kws={"color":"purple", "alpha":0.8},line_kws={"color":"green","alpha":0.8})
+"""
+st.code(codigo_python, language="python")
+st.image("3grafico.jpg")
+#
+st.write("Mostramos un mapa de calor, despues de haber modificado nuestro DataFrame para que nos diera las coordenadas:")
+codigo_python = """
+fig = px.density_mapbox(cantidadComuna, lat = 'lat', lon = 'lon',z='DESCRIPCION_CONDUCTA',
+                        radius = 50,
+                        hover_name='NOM_COM',
+                        color_continuous_scale='rainbow',
+                        center = dict(lat = 7.12539, lon = -73.1198),
+                        zoom = 12,
+                        mapbox_style = 'open-street-map')
 fig.show()
 """
-st.code(codigo_python5, language="python")
+st.code(codigo_python, language="python")
+st.image("4grafico.jpg")
+#
+st.write("Mostramos un mapa de calor, despues de haber modificado nuestro DataFrame para que nos diera las coordenadas:")
+codigo_python = """
+frecuencias_barrios_filtradas = frecuencias_barrios[frecuencias_barrios >= 1000] #filtramos
+plt.figure(figsize=(8, 4))  # Tamaño de la figura
+frecuencias_barrios_filtradas.plot(kind='barh', color='skyblue')  # Tipo de gráfico y sus colores
+plt.title('Registro de frecuencia en Barrios (Filtrados & Organizados)')
+plt.xlabel('FRECUENCIA')  # Etiqueta del eje x
+plt.ylabel('BARRIOS')  # Etiqueta del eje y
+plt.tight_layout()
+plt.show()  # Muestra el gráfico
+"""
+st.code(codigo_python, language="python")
+st.image("5grafico.jpg")
 
-st.write("Otros gráficos y análisis ... [continúa con otros gráficos y códigos según sea necesario]")
+#
+st.write("Graficos de barras Frecuencias Delito:")
+codigo_python = """
+# Filtrar los tipos de delito con una cantidad mayor a 400
+frecuencias_filtradas = frecuencias_delito[frecuencias_delito > 400]
+
+# Crear el gráfico de barras
+plt.figure(figsize=(10, 6))  # Tamaño del gráfico
+frecuencias_filtradas.plot(kind='bar', color='red')
+plt.title('Cantidad de Delitos por Tipo (Filtrado)')  # Título del gráfico
+plt.xlabel('Tipo de Delito')  # Etiqueta del eje x
+plt.ylabel('Cantidad')  # Etiqueta del eje y
+plt.xticks(rotation=90)  # Rotar las etiquetas del eje x para mayor legibilidad
+plt.tight_layout()
+
+# Mostrar el gráfico
+plt.show()
+"""
+st.code(codigo_python, language="python")
+st.image("6grafico.png")
+#
+
+st.write("Graficos de Pastel: Frecuencia del Genero")
+codigo_python = """
+plt.figure(figsize=(5, 5))
+plt.pie(frecuencias_genero, labels=frecuencias_genero.index, autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.title('Frecuencia GENERO')
+plt.show()
+"""
+st.code(codigo_python, language="python")
+st.image("7grafico.png")
+
+st.write("Grafico pastel: Frecuencia de Edades")
+codigo_python = """
+# Crea el gráfico de pastel
+plt.figure(figsize=(13, 12))
+plt.pie(cantidadporrango, labels=cantidadporrango.index, autopct='%1.1f%%', pctdistance=0.8, startangle=140, labeldistance=1.05)
+plt.axis('equal')
+plt.title('Frecuencia de Edades')
+plt.show()
+"""
+st.code(codigo_python, language="python")
+st.image("8grafico.png")
+
+st.write("Grafico pastel: Frecuencia de Horario")
+codigo_python = """
+# Crea el gráfico de pastel
+plt.figure(figsize=(13, 12))
+plt.pie(cantidadporrango, labels=cantidadporrango.index, autopct='%1.1f%%', pctdistance=0.8, startangle=140, labeldistance=1.05)
+plt.axis('equal')
+plt.title('Frecuencia de Edades')
+plt.show()
+"""
+st.code(codigo_python, language="python")
+st.image("8grafico.png")
+
+
+
+
+
+
 
 # Conclusiones
 
-st.markdown("# 🚀 Reflexiones Finales 🎨")
-st.markdown("1. 🏙️ El epicentro: El centro de la ciudad es el principal foco de delitos, probablemente debido a su dinámica comercial y la insuficiente presencia policial en zonas residenciales cercanas.")
-st.markdown("2. 🌟 Ubicación clave y vulnerabilidad: La elevada incidencia de delitos en el centro podría estar relacionada con su situación geográfica y la cercanía a zonas con menor vigilancia. Un reto en materia de seguridad.")
-st.markdown("3. 💼 Predominancia de delitos no sexuales: Lamentablemente, los delitos no sexuales son más comunes que los sexuales. ¿Qué medidas pueden adoptarse?")
-st.markdown("4. 🌞🌙 Momentos del delito: La criminalidad tiene sus picos en horas de la mañana y al amanecer, siendo más variable por la tarde y noche.")
-st.markdown("5. 👶👴 Edad y criminalidad: Los delitos afectan más a los adultos, siendo los más jóvenes quienes menos riesgos enfrentan.")
-st.markdown("6. 🏰 Estratos y delitos: Resulta sorprendente que zonas de alto estrato, como Cabecera del Llano, presenten índices similares a zonas de menor estrato.")
-st.markdown("7. 🚶‍♀️ Cautela al caminar: Desplazarse a pie por ciertas zonas puede tener sus riesgos. ¡Cuidado!")
-st.markdown("En conclusión, los datos nos revelan la urgencia de estrategias innovadoras para disminuir la tasa de delitos, proteger a los habitantes y conservar la belleza y seguridad de nuestra ciudad. ¡Juntos por una Bucaramanga más segura!")
+# Agrega emojis y estilos de fuente personalizados
+st.markdown("# 🚀 *Conclusión * 🎨")
 
-# Comentarios adicionales
-st.markdown("Si tienes comentarios o sugerencias sobre nuestro estudio, ¡nos encantaría escucharte!")
-comentario = st.text_area("Déjanos tu comentario o sugerencia:", "Escribe aquí...")
-if comentario != "Escribe aquí...":
-    st.success("¡Gracias por tu comentario!")
+st.markdown("1. 🏙️ *El Centro es el Hotspot:* La mayor cantidad de robos ocurre en el corazón de la ciudad, posiblemente debido a su vibrante actividad comercial y la falta de presencia policial en áreas cercanas a los barrios residenciales.")
 
-# Pie de página
-st.write("---")
-st.write("🔬 *Análisis de Datos por:* Andres Felipe Jaimes Rico & Manuel Delgado Mantilla")
-st.write("📚 *Datos proporcionados por:* [www.datos.gov.co](https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz)")
+st.markdown("2. 🌟 *Estratégico y Vulnerable:* Se podría inferir que la concentración de robos en el centro se debe a su ubicación estratégica y a la proximidad de barrios con menor presencia policial. ¡Un desafío para la seguridad!")
+
+st.markdown("3. 💼 *Delitos No Sexuales Dominan:* En el lado oscuro de la estadística, los delitos no sexuales superan en número a los delitos sexuales en la ciudad. ¿Cómo podemos abordar esta variabilidad en la seguridad?")
+
+st.markdown("4. 🌞🌙 *Hora de la Delincuencia:* Los delitos matutinos y madrugadores tienden a tener horarios fijos, mientras que los delitos en la tarde y noche son más impredecibles. ¡La ciudad nunca duerme!")
+
+st.markdown("5. 👶👴 *Edades y Delincuencia:* Los adultos son los más afectados por la delincuencia, mientras que los más pequeños (la primera infancia) experimentan menos problemas. ¡Protejamos a nuestros ciudadanos más jóvenes!")
+
+st.markdown("6. 🏰 *Estrato vs. Delincuencia:* Sorprendentemente, incluso un barrio de alto estrato como Cabecera del Llano comparte índices de delincuencia similares a los de un barrio de estrato más bajo, como El Centro. ¿Dónde radica la igualdad?")
+
+st.markdown("7. 🚶‍♀️ *Caminar con Cuidado:* Caminar por algunas partes de la ciudad puede ser arriesgado. ¡Mantén tus sentidos alerta y tu seguridad en mente!")
+
+st.markdown("En resumen, estos hallazgos sugieren la necesidad de implementar *estrategias creativas y efectivas* para reducir la incidencia de robos, proteger a nuestros ciudadanos y mantener nuestra ciudad hermosa y segura. ¡Sigamos trabajando juntos para un futuro más seguro!")
+# Barra de navegación
+st.sidebar.title("Navegación")
+pagina_actual = st.sidebar.radio("Selecciona una página:", ["Inicio", "Acerca de", "Contacto"])
+
+if pagina_actual == "Inicio":
+    st.sidebar.write("Bienvenido a la página de inicio.")
+elif pagina_actual == "Acerca de":
+    st.sidebar.write("Esta es la página de información acerca de la aplicación.")
+elif pagina_actual == "Contacto":
+    st.sidebar.write("Puedes ponerte en contacto con nosotros aquí.")
+import pandas as pd
+# Cargar el DataFrame
+df = pd.read_csv('92._Delitos_en_Bucaramanga_enero_2016_a_julio_de_2023.csv')  # Reemplaza 'tu_archivo.csv' con la ruta a tu archivo CSV
+info_df = pd.DataFrame({
+    'Nombre de la columna': df.columns,
+    'No. de valores no nulos': df.count().values,
+    'Tipo de datos': df.dtypes.values
+})
+
+# Mostrar el resumen en Streamlit
+st.title('Información del DataFrame')
+st.write('A continuación se muestra la información del DataFrame que utilizamos:')
+st.write(info_df)
+
+# p r e p r o c e s a m i e n t o
