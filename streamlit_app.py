@@ -340,6 +340,42 @@ st.image("./images/grafico6.png")
 st.write('')
 
 
+codigo_python = """
+df.RANGO_HORARIO_ORDEN =df.RANGO_HORARIO_ORDEN.astype(int)
+df.dtypes
+df.RANGO_HORARIO_ORDEN.value_counts()
+
+#Se coloca un rango de horario siendo este
+#de 0 a 7 madrugada , de 7 a 13 mañana, de 13 a 19 tarde
+#y desde las 19 noche
+
+bins = [-np.inf, 7, 13, 19, np.inf]
+names = ['MADRUGADA','MAÑANA','TARDE','NOCHE']
+
+df['rangoHORARIO']=pd.cut(df['RANGO_HORARIO_ORDEN'],bins,labels=names)
+
+cantidadporrangohora=df['rangoHORARIO'].value_counts()
+
+
+# Crea el gráfico de pastel
+plt.figure(figsize=(10, 8))
+plt.pie(cantidadporrangohora,labels=cantidadporrangohora.index, autopct='%1.1f%%', startangle=90)
+plt.axis('equal')
+plt.tight_layout()
+plt.title('Frecuencia de hora')
+plt.show()
+
+#De este grafico se puede concluir que entre la mañana y la tarde ocurren la mayoria de delitos y
+#en la noche es cuando ocurren menos delitos
+"""
+st.code(codigo_python, language="python")
+
+st.write('')
+st.image("./images/grafico6.png")
+st.write('')
+
+
+
 
 
 # ACA VA EL PREPROCESAMIENTO ------------------------------------------ CRISTIAN
