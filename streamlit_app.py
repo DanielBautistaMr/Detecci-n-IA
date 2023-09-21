@@ -412,28 +412,4 @@ st.markdown("5. Con el 58,6% el rango de edades más afectadas es la adultez, en
 
 st.markdown("6. El arma más utilizada es la blanca cortopunzante, la mayoria de delitos se cometen a las 12pm de la noche y las victimas normalmente van a pie.")
 
-# Barra de navegación
-st.sidebar.title("Navegación")
-pagina_actual = st.sidebar.radio("Selecciona una página:", ["Inicio", "Acerca de", "Contacto"])
 
-if pagina_actual == "Inicio":
-    st.sidebar.write("Bienvenido a la página de inicio.")
-elif pagina_actual == "Acerca de":
-    st.sidebar.write("Esta es la página de información acerca de la aplicación.")
-elif pagina_actual == "Contacto":
-    st.sidebar.write("Puedes ponerte en contacto con nosotros aquí.")
-import pandas as pd
-# Cargar el DataFrame
-df = pd.read_csv('92._Delitos_en_Bucaramanga_enero_2016_a_julio_de_2023.csv')  # Reemplaza 'tu_archivo.csv' con la ruta a tu archivo CSV
-info_df = pd.DataFrame({
-    'Nombre de la columna': df.columns,
-    'No. de valores no nulos': df.count().values,
-    'Tipo de datos': df.dtypes.values
-})
-
-# Mostrar el resumen en Streamlit
-st.title('Información del DataFrame')
-st.write('A continuación se muestra la información del DataFrame que utilizamos:')
-st.write(info_df)
-
-# p r e p r o c e s a m i e n t o
