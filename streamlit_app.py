@@ -424,7 +424,7 @@ plt.show()
 st.code(codigo_python, language="python")
 
 st.write('')
-st.image("./images/grafico10.png")
+st.image("./images/graficar10.png")
 st.write('')
 
 
