@@ -252,66 +252,92 @@ st.image("./images/aa.png")
 st.write('')
 
 
-
-
-
-
-st.write("Graficos de barras Frecuencias Delito:")
+st.write("Comienza el analisis y la creacion de nuevas preguntas y graficas")
 codigo_python = """
-# Filtrar los tipos de delito con una cantidad mayor a 400
-frecuencias_filtradas = frecuencias_delito[frecuencias_delito > 400]
+#Se filta los barrios por la cantidad de delitos para quedarse solamente los que tienen mas de 1000 delitos
+#esto se hace para poder centrarte en los barrios más comunes o significativos.
 
-# Crear el gráfico de barras
-plt.figure(figsize=(10, 6))  # Tamaño del gráfico
-frecuencias_filtradas.plot(kind='bar', color='red')
-plt.title('Cantidad de Delitos por Tipo (Filtrado)')  # Título del gráfico
-plt.xlabel('Tipo de Delito')  # Etiqueta del eje x
-plt.ylabel('Cantidad')  # Etiqueta del eje y
-plt.xticks(rotation=90)  # Rotar las etiquetas del eje x para mayor legibilidad
+frecuencias_barrios_filtradas = frecuencias_barrios[frecuencias_barrios >= 1000]
+
+plt.figure(figsize=(10, 6))  # Tamaño de la figura
+frecuencias_barrios_filtradas.plot(kind='barh', color='skyblue')  # Tipo de gráfico y color de las barras
+plt.title('Frecuencia de Barrios en los Registros (Filtrados)')  # Título del gráfico
+plt.xlabel('Frecuencia')  # Etiqueta del eje x
+plt.ylabel('Barrios')  # Etiqueta del eje y
+plt.tight_layout()  # Ajustar el diseño del gráfico
+plt.show()  # Muestra el gráfico
+
+"""
+st.code(codigo_python, language="python")
+
+st.write('')
+st.image("./images/grafico4.png")
+st.write('')
+
+codigo_python = """
+# Agrupa el DataFrame original, df, por la columna 'BARRIOS_HECHO'.
+# Luego, cuenta la cantidad de 'DESCRIPCION_CONDUCTA' para cada barrio,
+# proporcionando el número de delitos reportados para cada uno.
+
+
+cantidadbarrio=df.groupby(df["BARRIOS_HECHO"])["DESCRIPCION_CONDUCTA"].count().to_frame()
+cantidadbarrio
+
+df.isnull().sum()
+
+
+#Muestra la cantidad de datos faltantes por categoria
+
+#Se cuenta la cantidad sucesos por delito
+
+frecuencias_delito = df['DELITO_SOLO'].value_counts()
+frecuencias_delito
+
+frecuencias_delito.index
+
+#Se grafica la frecuencia con la que se repite un delito para poder vizualizarlos mejor y asi poder
+#sacar mejores conclusiones
+
+plt.figure(figsize=(19, 19))
+frecuencias_delito.plot(kind='barh', color='skyblue')
+plt.title('Frecuencia de delito')
+plt.xlabel('Frecuencia')
+plt.ylabel('Delito')
 plt.tight_layout()
-
-# Mostrar el gráfico
 plt.show()
+
+#Las conclusiones que se sacas son las siguientes:
+#La mayoria de delitos son de hurto personal
+#Hay muchos delitos los cuales ocurren tan poco que al momento
+#de predecir su probabilidad no van a variar tanto haciendo que no tenga peso
+
+
+
 """
 st.code(codigo_python, language="python")
-st.image("6grafico.png")
-#
 
-st.write("Graficos de Pastel: Frecuencia del Genero")
+st.write('')
+st.image("./images/grafico5.png")
+st.write('')
+
+
 codigo_python = """
-plt.figure(figsize=(5, 5))
-plt.pie(frecuencias_genero, labels=frecuencias_genero.index, autopct='%1.1f%%', startangle=140)
+df.NOM_COM.unique()
+
+frecuencias_local = df['NOM_COM'].value_counts()
+frecuencias_local
+plt.figure(figsize=(20, 10))
+plt.pie(frecuencias_local, labels=frecuencias_local.index, autopct='%1.0f%%', startangle=180)
 plt.axis('equal')
-plt.title('Frecuencia GENERO')
+plt.title('Frecuencia de Localidad')
 plt.show()
+
 """
 st.code(codigo_python, language="python")
-st.image("7grafico.png")
 
-st.write("Grafico pastel: Frecuencia de Edades")
-codigo_python = """
-# Crea el gráfico de pastel
-plt.figure(figsize=(13, 12))
-plt.pie(cantidadporrango, labels=cantidadporrango.index, autopct='%1.1f%%', pctdistance=0.8, startangle=140, labeldistance=1.05)
-plt.axis('equal')
-plt.title('Frecuencia de Edades')
-plt.show()
-"""
-st.code(codigo_python, language="python")
-st.image("8grafico.png")
-
-st.write("Grafico pastel: Frecuencia de Horario")
-codigo_python = """
-# Crea el gráfico de pastel
-plt.figure(figsize=(13, 12))
-plt.pie(cantidadporrango, labels=cantidadporrango.index, autopct='%1.1f%%', pctdistance=0.8, startangle=140, labeldistance=1.05)
-plt.axis('equal')
-plt.title('Frecuencia de Edades')
-plt.show()
-"""
-st.code(codigo_python, language="python")
-st.image("8grafico.png")
-
+st.write('')
+st.image("./images/grafico6.png")
+st.write('')
 
 
 
