@@ -540,9 +540,9 @@ st.code(codigo_python, language="python")
 
 
 
-st.subheader("¿Por que usar el modeloBA? ")
+st.subheader("¿Por que usar el modeloBA? ❤️")
 
-st.write("""se escogio debido a que su accuracy nos dio mayor exactitud a comparacion de otros modelo sus resultados fueron mayores.
+st.write("""Se escogio debido a que su accuracy nos dio mayor exactitud a comparacion de otros modelo sus resultados fueron mayores.
 
 Otros motivos son porque en general es bueno para predecir cosas con precisión, incluso cuando tenemos muchos datos para mirar. Además, es bueno para tratar con datos desequilibrados y no exagerar las predicciones.""")
 
