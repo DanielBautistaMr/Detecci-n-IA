@@ -439,23 +439,23 @@ st.write('')
 
 
 
-st.markdown("#  CONCLUSIONES 🦾 ")
+st.subheader("#  CONCLUSIONES 🦾 ")
 
-st.markdown("1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia y ademas en 2023 se ve que pocos delitos ya que la base de datos de donde sacamos la informacion solo la toma hasta julio. 🥺")
+st.markdown("1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia y ademas en 2023 se ve que pocos delitos ya que la base de datos de donde sacamos la informacion solo la toma hasta julio. ")
 
-st.markdown("2. El barrio donde mas hay delitos es en el centro con una gran diferencia de las demas seguido de cabecera del llano. 😮")
+st.markdown("2. El barrio donde mas hay delitos es en el centro con una gran diferencia de las demas seguido de cabecera del llano. ")
 
-st.markdown("3. El delito mas usual es el hurto a personas o delitos contra el patrimonio de economico. 📱")
+st.markdown("3. El delito mas usual es el hurto a personas o delitos contra el patrimonio de economico. ")
 
-st.markdown("4. El genero que mas se ve afectado por los delitos en el femenino, pero aun asi no se genera mucha diferencia entre los masculinos. 🤦‍♀️")
+st.markdown("4. El genero que mas se ve afectado por los delitos en el femenino, pero aun asi no se genera mucha diferencia entre los masculinos. ")
 
-st.markdown("5. Con el 58,6% el rango de edades más afectadas es la adultez, entre 27-59 años. 👴🏿")
+st.markdown("5. Con el 58,6% el rango de edades más afectadas es la adultez, entre 27-59 años. ")
 
-st.markdown("6. Entre mas edad se tiene mas problabilidad hay de que sea victima de un delito. 😹")
+st.markdown("6. Entre mas edad se tiene mas problabilidad hay de que sea victima de un delito.")
 
-st.markdown("7. El arma más utilizada es la blanca cortopunzante, la mayoria de delitos se cometen a las 12pm de la noche y las victimas normalmente van a pie. 🔪")
+st.markdown("7. El arma más utilizada es la blanca cortopunzante, la mayoria de delitos se cometen a las 12pm de la noche y las victimas normalmente van a pie. ")
 
-st.markdown("8. No existe una gran diferencia entre los que van en motocicleta a los que van en un vehiculo. 👻")
+st.markdown("8. No existe una gran diferencia entre los que van en motocicleta a los que van en un vehiculo. ")
 
 
 st.write("#  PREPROCESSAMIENTO 🤔")
