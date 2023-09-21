@@ -548,6 +548,113 @@ st.write("""Se escogio debido a que su accuracy nos dio mayor exactitud a compar
 Otros motivos son porque en general es bueno para predecir cosas con precisión, incluso cuando tenemos muchos datos para mirar. Además, es bueno para tratar con datos desequilibrados y no exagerar las predicciones.""")
 
 
+st.write("#  PREDICCION 🤔")
+
+st.write('Librerias usadas: ')
+
+codigo_python = """
+#1 #TRATAMIENTO DE DATOS
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+#LEER ARCHIVOS DE WEB
+import joblib as jb
+
+from sklearn.ensemble import RandomForestClassifier
+
+from ipywidgets import interact, interactive, fixed, interact_manual
+import ipywidgets as widgets
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+"""
+st.code(codigo_python, language="python")
+
+st.subheader('Codigo del modelo: ')
+
+codigo_python = """
+def patalla(X_predecir,y_predict,edad,genero,mes,hora,comuna,dia):
+  print(edad,genero,mes,hora,comuna,dia)
+
+
+  # Se filtra el dataframe basado en las condiciones dadas
+
+  dfc=df[(df["GENERO"]==genero) & (df["MES_NUM"]==mes) & (df["NOM_COM"]==comuna) & (df["DIA_NOMBRE"]==dia) & (df["TIPOLOGÍA"]==y_predict[0])]
+  print(end='\n'),print(end='\n')
+
+  print("                        Los datos de entrada son")
+  print("+----------------------------------------------------------------------+")
+  print(end='\n')
+  print(X_predecir)
+  print(end='\n')
+
+  print("+----------------------------------------------------------------------+")
+  print(end='\n')
+  print("                         El resultado es")
+  print(end='\n')
+  print("Prediccón:                {}".format(y_predict[0]))
+  print(end='\n')
+
+  print("+----------------------------------------------------------------------+")
+
+  # Contar frecuencias de delitos y barrios
+  solo=dfc['DELITO_SOLO'].value_counts()
+  barrios=dfc['BARRIOS_HECHO'].value_counts()
+
+
+# Imprimir estadísticas si existen registros que coincidan con los criterios
+
+  if len(solo)!=0:
+    print(end='\n')
+    print('Frecuencia de delitos en el '+genero + '  segun la seleccion durante las 24H' )
+    print(end='\n')
+    print(end='\n')
+    print(solo)
+    print(end='\n')
+    print("+----------------------------------------------------------------------+")
+    print(end='\n')
+    print('Frecuencia en los barrios de la comuna  '+ comuna + '  segun durante las 24H' )
+    print(end='\n')
+
+
+    # Visualización de la distribución de delitos por barrio
+    plt.figure(figsize=(5, 4))
+    plt.pie(barrios,labels=barrios.index, autopct='%1.1f%%')
+    plt.axis('equal')
+    plt.tight_layout()
+    plt.title('Riesgo por barrios',fontsize=10,fontweight="bold",loc = "right")
+    plt.show()
+    print("+----------------------------------------------------------------------+")
+
+
+"""
+st.code(codigo_python, language="python")
+
+st.subheader('Funcion de la entrada: ')
+
+st.write("Esta función toma como entrada la edad, género, mes, hora, comuna y día de la semana, y utiliza un modelo de aprendizaje automático para hacer predicciones. Transforma las categorías categóricas en valores numéricos, crea un DataFrame con los valores proporcionados y realiza la predicción. Luego, muestra los resultados en pantalla y los devuelve como salida. Puede interactuar con esta función ajustando los parámetros como la edad, género, mes, hora, comuna y día.")
+
+codigo_python = """
+def f(edad,genero,mes,hora,comuna,dia):
+    dian=list(codDia.transform([dia]))[0]
+    comunan=list(codComuna.transform([comuna]))[0]
+    generon=list(codGenero.transform([genero]))[0]
+    lista=[[edad,generon,mes,hora,comunan,dian]]
+    X_predecir=pd.DataFrame(lista,columns=['EDAD', 'GENERO', 'MES_NUM', 'RANGO_HORARIO_ORDEN', 'NOM_COM','DIA_NOMBRE'])
+    y_predict=modeloBA.predict(X_predecir)
+    patalla(X_predecir,y_predict,edad,genero,mes,hora,comuna,dia)
+    return edad,genero,mes,hora,comuna,dia
+
+
+    interactive(f, edad=(0,100,15), genero=generos, mes=(1,12,1),hora=(0,24,4), comuna=comunas, dia=diaSemana,)
+
+
+"""
+st.code(codigo_python, language="python")
+
+
 st.write("#  MODELO EN FUNCIONAMIENTO 🤖 ")
 
 st.write('El siguiente video muestra el video de la IA usando el modeloBA escogido despues del preprocessamiento: ')
