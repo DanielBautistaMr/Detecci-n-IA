@@ -1,10 +1,15 @@
 import streamlit as st
 
 # Título centrado
-st.markdown("<h1 style='text-align: center;'>Creacion Proyecto Deteccion de Delitos en Bucaramanga</h1>", unsafe_allow_html=True)
+st.markdown(
+    "<h1 style='text-align: center;'>Creacion Proyecto Deteccion de Delitos en Bucaramanga</h1>",
+    unsafe_allow_html=True,
+)
 
 # Introducción
-st.write(f"Te presentaremos el caso de estudio desde el analisis hasta la creacion de un modelo de IA para la deteccion de delitos del grupo de Daniel Bautista, Kevin Llanos, Cristian Muñoz ")
+st.write(
+    f"Te presentaremos el caso de estudio desde el analisis hasta la creacion de un modelo de IA para la deteccion de delitos del grupo de Daniel Bautista, Kevin Llanos, Cristian Muñoz "
+)
 
 # Imagen
 st.image("./images/intro.jpeg")
@@ -12,7 +17,9 @@ st.image("./images/intro.jpeg")
 st.write("# ANALISIS 🧐")
 
 
-st.write("Todo los datos salieron del siguiente DataSet: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz")
+st.write(
+    "Todo los datos salieron del siguiente DataSet: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz"
+)
 
 
 codigo_python = """
@@ -39,8 +46,9 @@ import plotly.express as px
 st.code(codigo_python, language="python")
 
 
-
-st.write("Se conecta Drive con el google colab para poder aceder a los datos subidos del dataset de delitos")
+st.write(
+    "Se conecta Drive con el google colab para poder aceder a los datos subidos del dataset de delitos"
+)
 
 
 codigo_python = """
@@ -51,7 +59,9 @@ df
 """
 st.code(codigo_python, language="python")
 
-st.write("Se conecta Drive con el google colab para poder aceder a los datos subidos del dataset de barrios")
+st.write(
+    "Se conecta Drive con el google colab para poder aceder a los datos subidos del dataset de barrios"
+)
 codigo_python = """
 from google.colab import drive
 drive.mount('/content/drive')
@@ -67,7 +77,8 @@ st.code(codigo_python, language="python")
 
 st.write("# PROCESO DE LIMPIEZA")
 
-st.write(""" 
+st.write(
+    """ 
 
 
 El dataset importado no a sido claramente filtrado y limpiado aqui hay algunas razones para hacerlo: 
@@ -95,9 +106,8 @@ El dataset importado no a sido claramente filtrado y limpiado aqui hay algunas r
 
 11.Facilita la colaboración: Datos limpios son más fáciles de compartir y colaborar en análisis interdisciplinarios. 👨‍👩‍👧
 
-""")
-
-
+"""
+)
 
 
 codigo_python = """
@@ -157,12 +167,12 @@ plt.show()
 
 st.code(codigo_python, language="python")
 
-st.write('')
+st.write("")
 
 st.image("./images/grafico1.png")
 
 
-st.write('')
+st.write("")
 
 
 codigo_python = """
@@ -177,10 +187,10 @@ plt.show()
 """
 
 st.code(codigo_python, language="python")
-st.write('')
+st.write("")
 
 st.image("./images/grafico2.png")
-st.write('')
+st.write("")
 
 
 codigo_python = """
@@ -191,10 +201,10 @@ sns.regplot(x=cantidadxañosin2023.index,y=cantidadxañosin2023["DESCRIPCION_CON
 """
 
 st.code(codigo_python, language="python")
-st.write('')
+st.write("")
 
 st.image("./images/grafico3.png")
-st.write('')
+st.write("")
 
 st.subheader("Mapa de calor 🔥")
 
@@ -257,7 +267,7 @@ cantidadComuna
 
 st.code(codigo_python, language="python")
 
-st.write('')
+st.write("")
 
 
 st.write("Mapa de calor: ")
@@ -275,9 +285,9 @@ fig.show()
 """
 st.code(codigo_python, language="python")
 
-st.write('')
+st.write("")
 st.image("./images/aa.png")
-st.write('')
+st.write("")
 
 st.subheader("Frecuencias Barrios 🏡")
 
@@ -299,9 +309,9 @@ plt.show()  # Muestra el gráfico
 """
 st.code(codigo_python, language="python")
 
-st.write('')
+st.write("")
 st.image("./images/grafico4.png")
-st.write('')
+st.write("")
 
 st.subheader("Frecuencias Localidad 📟")
 
@@ -320,9 +330,9 @@ plt.show()
 """
 st.code(codigo_python, language="python")
 
-st.write('')
+st.write("")
 st.image("./images/grafico6.png")
-st.write('')
+st.write("")
 
 st.subheader("Frecuencias de Hora 🕐")
 
@@ -357,9 +367,9 @@ plt.show()
 """
 st.code(codigo_python, language="python")
 
-st.write('')
+st.write("")
 st.image("./images/grafico7.png")
-st.write('')
+st.write("")
 
 st.subheader("Frecuencias de Genero 👫")
 
@@ -376,9 +386,9 @@ plt.show()
 """
 st.code(codigo_python, language="python")
 
-st.write('')
+st.write("")
 st.image("./images/grafica9.png")
-st.write('')
+st.write("")
 
 st.subheader("Frecuencias de Edad 👴👵")
 
@@ -416,9 +426,9 @@ plt.show()
 """
 st.code(codigo_python, language="python")
 
-st.write('')
+st.write("")
 st.image("./images/graficar10.png")
-st.write('')
+st.write("")
 
 st.subheader("Guardar el CSV 💾")
 
@@ -430,39 +440,53 @@ codigo_python = """
 # y el nombre del archivo CSV en el que se guardarán los datos.
 df.to_csv('/content/drive/MyDrive/Delitos proyecto/Delito Bucaramanga_preprocesar.csv')
 """
-st.write('')
+st.write("")
 
 st.code(codigo_python, language="python")
 
-st.write('')
-
-
+st.write("")
 
 
 st.write("#  CONCLUSIONES 🦾 ")
 
 
-st.markdown("1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia y ademas en 2023 se ve que pocos delitos ya que la base de datos de donde sacamos la informacion solo la toma hasta julio. ")
+st.markdown(
+    "1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia y ademas en 2023 se ve que pocos delitos ya que la base de datos de donde sacamos la informacion solo la toma hasta julio. "
+)
 
-st.markdown("2. El barrio donde mas hay delitos es en el centro con una gran diferencia de las demas seguido de cabecera del llano. ")
+st.markdown(
+    "2. El barrio donde mas hay delitos es en el centro con una gran diferencia de las demas seguido de cabecera del llano. "
+)
 
-st.markdown("3. El delito mas usual es el hurto a personas o delitos contra el patrimonio de economico. ")
+st.markdown(
+    "3. El delito mas usual es el hurto a personas o delitos contra el patrimonio de economico. "
+)
 
-st.markdown("4. El genero que mas se ve afectado por los delitos en el femenino, pero aun asi no se genera mucha diferencia entre los masculinos. ")
+st.markdown(
+    "4. El genero que mas se ve afectado por los delitos en el femenino, pero aun asi no se genera mucha diferencia entre los masculinos. "
+)
 
-st.markdown("5. Con el 58,6% el rango de edades más afectadas es la adultez, entre 27-59 años. ")
+st.markdown(
+    "5. Con el 58,6% el rango de edades más afectadas es la adultez, entre 27-59 años. "
+)
 
-st.markdown("6. Entre mas edad se tiene mas problabilidad hay de que sea victima de un delito.")
+st.markdown(
+    "6. Entre mas edad se tiene mas problabilidad hay de que sea victima de un delito."
+)
 
-st.markdown("7. El arma más utilizada es la blanca cortopunzante, la mayoria de delitos se cometen a las 12pm de la noche y las victimas normalmente van a pie. ")
+st.markdown(
+    "7. El arma más utilizada es la blanca cortopunzante, la mayoria de delitos se cometen a las 12pm de la noche y las victimas normalmente van a pie. "
+)
 
-st.markdown("8. No existe una gran diferencia entre los que van en motocicleta a los que van en un vehiculo. ")
+st.markdown(
+    "8. No existe una gran diferencia entre los que van en motocicleta a los que van en un vehiculo. "
+)
 
 
 st.write("#  PREPROCESSAMIENTO 🤔")
 
-st.write('Se muestra el modelo escogido y su funcionamiento como el codigo ')
-st.write('Librerias usadas: ')
+st.write("Se muestra el modelo escogido y su funcionamiento como el codigo ")
+st.write("Librerias usadas: ")
 
 codigo_python = """
 
@@ -482,9 +506,11 @@ from sklearn import tree
 """
 st.code(codigo_python, language="python")
 
-st.subheader('Creacion del modeloBA')
+st.subheader("Creacion del modeloBA")
 
-st.write("Este modelo de bosque combina múltiples árboles de decisión para hacer predicciones más precisas y resistentes al sobreajuste. Cada árbol contribuye a la decisión final. Además, podemos analizar la importancia de las características en las predicciones. En esta aplicación, exploraremos cómo funciona en sus datos.")
+st.write(
+    "Este modelo de bosque combina múltiples árboles de decisión para hacer predicciones más precisas y resistentes al sobreajuste. Cada árbol contribuye a la decisión final. Además, podemos analizar la importancia de las características en las predicciones. En esta aplicación, exploraremos cómo funciona en sus datos."
+)
 codigo_python = """
 
 #Defino el algoritmo a utilizar
@@ -509,7 +535,7 @@ modeloBA.score(X_test,y_test)*100
 st.code(codigo_python, language="python")
 
 
-st.subheader('Matriz')
+st.subheader("Matriz")
 
 codigo_python = """
 #confusion_matrix con los datos de prueba
@@ -530,27 +556,27 @@ print(pd.DataFrame(y_predict).head(20))
 """
 st.code(codigo_python, language="python")
 
-st.write('')
+st.write("")
 st.image("./images/graficar11.png")
-st.write('Se guardo el modelo .bin')
+st.write("Se guardo el modelo .bin")
 codigo_python = """
 jb.dump(modeloBA,"/content/drive/MyDrive/Delitos proyecto/modeloBA.bin",compress=True)
 """
 st.code(codigo_python, language="python")
 
 
-
-
 st.subheader("¿Por que usar el modeloBA? ❤️")
 
-st.write("""Se escogio debido a que su accuracy nos dio mayor exactitud a comparacion de otros modelo sus resultados fueron mayores.
+st.write(
+    """Se escogio debido a que su accuracy nos dio mayor exactitud a comparacion de otros modelo sus resultados fueron mayores.
 
-Otros motivos son porque en general es bueno para predecir cosas con precisión, incluso cuando tenemos muchos datos para mirar. Además, es bueno para tratar con datos desequilibrados y no exagerar las predicciones.""")
+Otros motivos son porque en general es bueno para predecir cosas con precisión, incluso cuando tenemos muchos datos para mirar. Además, es bueno para tratar con datos desequilibrados y no exagerar las predicciones."""
+)
 
 
 st.markdown("#  PREDICCION 🤓☝️")
 
-st.write('Librerias usadas: ')
+st.write("Librerias usadas: ")
 
 codigo_python = """
 #1 #TRATAMIENTO DE DATOS
@@ -572,7 +598,7 @@ drive.mount('/content/drive')
 """
 st.code(codigo_python, language="python")
 
-st.subheader('Codigo del modelo: ')
+st.subheader("Codigo del modelo: ")
 
 codigo_python = """
 def patalla(X_predecir,y_predict,edad,genero,mes,hora,comuna,dia):
@@ -632,9 +658,11 @@ def patalla(X_predecir,y_predict,edad,genero,mes,hora,comuna,dia):
 """
 st.code(codigo_python, language="python")
 
-st.subheader('Funcion de la entrada: ')
+st.subheader("Funcion de la entrada: ")
 
-st.write("Esta función toma como entrada la edad, género, mes, hora, comuna y día de la semana, y utiliza un modelo de aprendizaje automático para hacer predicciones. Transforma las categorías categóricas en valores numéricos, crea un DataFrame con los valores proporcionados y realiza la predicción. Luego, muestra los resultados en pantalla y los devuelve como salida. Puede interactuar con esta función ajustando los parámetros como la edad, género, mes, hora, comuna y día.")
+st.write(
+    "Esta función toma como entrada la edad, género, mes, hora, comuna y día de la semana, y utiliza un modelo de aprendizaje automático para hacer predicciones. Transforma las categorías categóricas en valores numéricos, crea un DataFrame con los valores proporcionados y realiza la predicción. Luego, muestra los resultados en pantalla y los devuelve como salida. Puede interactuar con esta función ajustando los parámetros como la edad, género, mes, hora, comuna y día."
+)
 
 codigo_python = """
 def f(edad,genero,mes,hora,comuna,dia):
@@ -657,7 +685,9 @@ st.code(codigo_python, language="python")
 
 st.write("#  MODELO EN FUNCIONAMIENTO 🤖 ")
 
-st.write('El siguiente video muestra el video de la IA usando el modeloBA escogido despues del preprocessamiento: ')
+st.write(
+    "El siguiente video muestra el video de la IA usando el modeloBA escogido despues del preprocessamiento: "
+)
 
 # Cargar el video desde el sistema local
 video_file = open("./images/vide.mov", "rb")
@@ -667,4 +697,6 @@ video_bytes = video_file.read()
 st.video(video_bytes)
 
 
-st.write("Como podemos ver el modelo esta funcionando de forma perfecta nos imprime una grafica en donde podemos ver de manera visual la probabilidad de sufrir un delito")
+st.write(
+    "Como podemos ver el modelo esta funcionando de forma perfecta nos imprime una grafica en donde podemos ver de manera visual la probabilidad de sufrir un delito"
+)
