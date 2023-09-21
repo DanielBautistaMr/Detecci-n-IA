@@ -134,7 +134,7 @@ plt.show()
 """
 
 st.code(codigo_python, language="python")
-st.image("./images/grafico1.jpg")
+st.image("./images/grafico1.png")
 
 codigo_python = """
 #Se hace una grafica de lineas para asi poder visualizar mejor la cantidad de delitos atraves de los años
@@ -148,21 +148,7 @@ plt.show()
 """
 
 st.code(codigo_python, language="python")
-st.image("./images/grafico2.jpg")
-
-codigo_python = """
-#Se hace una grafica de lineas para asi poder visualizar mejor la cantidad de delitos atraves de los años
-#teniendo en cuenta los meses que en los que se realizaron
-
-
-ax = cantidadmesxaño.plot(kind="line")
-ax.set_xlabel("Año/Mes")
-ax.set_ylabel("Cantidad de Delitos")
-plt.show()
-"""
-
-st.code(codigo_python, language="python")
-st.image("./images/grafico2.jpg")
+st.image("./images/grafico2.png")
 
 codigo_python = """
 #Se utiliza Seaborn para crear un gráfico de regresión para asi poder ver la tendencia que representa
@@ -172,7 +158,7 @@ sns.regplot(x=cantidadxañosin2023.index,y=cantidadxañosin2023["DESCRIPCION_CON
 """
 
 st.code(codigo_python, language="python")
-st.image("./images/grafico3.jpg")
+st.image("./images/grafico3.png")
 
 st.write("Intentamos encontrar con regresión encontrar relacion entre dos variables:")
 codigo_python = """
