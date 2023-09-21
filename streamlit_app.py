@@ -40,7 +40,6 @@ st.code(codigo_python, language="python")
 st.write("""Se conecta Drive con el google colab para poder aceder a los datos subidos en 
 
 1.   Elemento de la lista
-2.   Elemento de la lista
 
 este""")
 codigo_python = """
@@ -51,9 +50,8 @@ df
 """
 st.code(codigo_python, language="python")
 
-st.write("""Se conecta Drive con el google colab para poder aceder a los datos subidos en 
+st.write("""
 
-1.   Elemento de la lista
 2.   Elemento de la lista
 
 este""")
