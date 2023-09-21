@@ -316,7 +316,13 @@ st.image("8grafico.png")
 
 
 
+# ACA VA EL PREPROCESAMIENTO ------------------------------------------ CRISTIAN
 
+
+
+
+
+#ACA VA EL MODELO ------------------------------------------------------- KEVIN
 
 # Conclusiones
 
