@@ -484,8 +484,7 @@ st.code(codigo_python, language="python")
 
 st.subheader('Creacion del modeloBA')
 
-st.write("Este modelo de bosque, que opera como un conjunto de árboles de decisión, es una poderosa herramienta de aprendizaje automático que utiliza múltiples estimadores para tomar decisiones más precisas y robustas. Cada árbol en el bosque emite su propia predicción y, finalmente, se combina para obtener un resultado final. Esto hace que el modelo sea resistente al sobreajuste y muy adecuado para tareas de clasificación y regresión. Además, el modelo puede proporcionar información sobre la importancia relativa de las características utilizadas en las predicciones, lo que nos permite entender mejor cómo se toman las decisiones. En esta aplicación, exploraremos cómo este modelo de bosque se aplica a su conjunto de datos y cómo sus características influyen en las predicciones resultantes.")
-
+st.write("Este modelo de bosque combina múltiples árboles de decisión para hacer predicciones más precisas y resistentes al sobreajuste. Cada árbol contribuye a la decisión final. Además, podemos analizar la importancia de las características en las predicciones. En esta aplicación, exploraremos cómo funciona en sus datos.")
 codigo_python = """
 
 #Defino el algoritmo a utilizar
