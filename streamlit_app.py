@@ -375,6 +375,15 @@ st.image("./images/grafico7.png")
 st.write('')
 
 
+codigo_python = """
+# Esta línea de código guarda el DataFrame 'df' en un archivo CSV en la ubicación especificada.
+# Utiliza el método 'to_csv()' para exportar los datos del DataFrame a un archivo CSV.
+# La ruta '/content/drive/MyDrive/Delitos proyecto/Delito Bucaramanga_preprocesar.csv' especifica la ubicación
+# y el nombre del archivo CSV en el que se guardarán los datos.
+df.to_csv('/content/drive/MyDrive/Delitos proyecto/Delito Bucaramanga_preprocesar.csv')
+
+"""
+
 
 
 
@@ -389,23 +398,20 @@ st.write('')
 # Conclusiones
 
 # Agrega emojis y estilos de fuente personalizados
-st.markdown("# 🚀 *Conclusión * 🎨")
+st.markdown("#  *CONCLUSIONES * ")
 
-st.markdown("1. 🏙️ *El Centro es el Hotspot:* La mayor cantidad de robos ocurre en el corazón de la ciudad, posiblemente debido a su vibrante actividad comercial y la falta de presencia policial en áreas cercanas a los barrios residenciales.")
+st.markdown("1. Los delitos en Bucaramanga los ultimos años han aumentado, en 2020 hubo una disminución pero se asume a que fue debido a la pandemia.")
 
-st.markdown("2. 🌟 *Estratégico y Vulnerable:* Se podría inferir que la concentración de robos en el centro se debe a su ubicación estratégica y a la proximidad de barrios con menor presencia policial. ¡Un desafío para la seguridad!")
+st.markdown("2. El barrio donde mas hay delitos es en el centro.")
 
-st.markdown("3. 💼 *Delitos No Sexuales Dominan:* En el lado oscuro de la estadística, los delitos no sexuales superan en número a los delitos sexuales en la ciudad. ¿Cómo podemos abordar esta variabilidad en la seguridad?")
+st.markdown("3. El delito mas usual es el hurto a personas.")
 
-st.markdown("4. 🌞🌙 *Hora de la Delincuencia:* Los delitos matutinos y madrugadores tienden a tener horarios fijos, mientras que los delitos en la tarde y noche son más impredecibles. ¡La ciudad nunca duerme!")
+st.markdown("4. El genero que mas se ve afectado por los delitos en el femenino.")
 
-st.markdown("5. 👶👴 *Edades y Delincuencia:* Los adultos son los más afectados por la delincuencia, mientras que los más pequeños (la primera infancia) experimentan menos problemas. ¡Protejamos a nuestros ciudadanos más jóvenes!")
+st.markdown("5. Con el 58,6% el rango de edades más afectadas es la adultez, entre 27-59 años.")
 
-st.markdown("6. 🏰 *Estrato vs. Delincuencia:* Sorprendentemente, incluso un barrio de alto estrato como Cabecera del Llano comparte índices de delincuencia similares a los de un barrio de estrato más bajo, como El Centro. ¿Dónde radica la igualdad?")
+st.markdown("6. El arma más utilizada es la blanca cortopunzante, la mayoria de delitos se cometen a las 12pm de la noche y las victimas normalmente van a pie.")
 
-st.markdown("7. 🚶‍♀️ *Caminar con Cuidado:* Caminar por algunas partes de la ciudad puede ser arriesgado. ¡Mantén tus sentidos alerta y tu seguridad en mente!")
-
-st.markdown("En resumen, estos hallazgos sugieren la necesidad de implementar *estrategias creativas y efectivas* para reducir la incidencia de robos, proteger a nuestros ciudadanos y mantener nuestra ciudad hermosa y segura. ¡Sigamos trabajando juntos para un futuro más seguro!")
 # Barra de navegación
 st.sidebar.title("Navegación")
 pagina_actual = st.sidebar.radio("Selecciona una página:", ["Inicio", "Acerca de", "Contacto"])
