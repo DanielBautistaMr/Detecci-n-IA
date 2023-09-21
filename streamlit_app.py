@@ -248,11 +248,11 @@ fig.show()
 st.code(codigo_python, language="python")
 
 st.write('')
+st.image("./images/newplot.png")
 st.write('')
 
-st.image("newplot.png")
 
-st.write('')
+
 
 
 st.write("Mostramos un mapa de calor, despues de haber modificado nuestro DataFrame para que nos diera las coordenadas:")
