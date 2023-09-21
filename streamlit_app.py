@@ -9,8 +9,9 @@ st.image("./images/intro.jpeg")
 # Código de ejemplo
 st.write("Comencemos a detallar este estudio: ")
 st.write("# ANALISIS")
+
 codigo_python = """
-  #1 #TRATAMIENTO DE DATOS
+#TRATAMIENTO DE DATOS
 import pandas as pd
 import numpy as np
 
