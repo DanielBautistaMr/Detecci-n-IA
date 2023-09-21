@@ -467,6 +467,56 @@ st.markdown("7. El arma más utilizada es la blanca cortopunzante, la mayoria de
 st.markdown("8. No existe una gran diferencia entre los que van en motocicleta a los que van en un vehiculo. 👻")
 
 
+st.markdown("#  PREPROCESSAMIENTO ")
+
+st.write('Se muestra el modelo escogido y su funcionamiento como el codigo ')
+st.write('Librerias usadas: ')
+
+codigo_python = """
+
+from sklearn.metrics import confusion_matrix
+
+from sklearn.metrics import ConfusionMatrixDisplay
+
+from sklearn.metrics import classification_report
+
+from sklearn.metrics import accuracy_score
+
+from sklearn.feature_selection import SelectKBest
+
+from sklearn.feature_selection import f_classif
+
+from sklearn import tree
+"""
+st.code(codigo_python, language="python")
+
+st.subheader('Creacion del modelo BA')
+
+codigo_python = """
+
+#Defino el algoritmo a utilizar
+modeloBA= RandomForestClassifier(random_state=0)
+#Entreno el modelo
+modeloBA.fit(X_train, y_train)
+
+
+
+#accuracy del set de entrenamiento
+
+modeloBA.score(X_train,y_train)*100
+
+98.79846418215014
+
+
+modeloBA.score(X_test,y_test)*100
+
+65.56760820534852
+
+"""
+st.code(codigo_python, language="python")
+
+
+
 
 st.markdown("#  MODELO INTELGENCIA ARTIFICIAL ")
 
