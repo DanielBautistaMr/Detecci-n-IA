@@ -10,28 +10,6 @@ st.image("./images/intro.jpeg")
 st.write("Comencemos a detallar este estudio: ")
 st.write("# ANALISIS")
 
-#codigo_python = """
-#TRATAMIENTO DE DATOS
-import pandas as pd
-import numpy as np
-
-#SISTEMA OPERATIVO
-import os
-
-#GRAFICO
-import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
-import seaborn as sns
-
-#LEER ARCHIVOS DE WEB
-import urllib
-
-#MAPA DE CALOR
-
-import plotly.express as px
-"""
-st.code(codigo_python, language="python")
-st.write("Todo los datos salieron del siguiente DataSet: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz")
 codigo_python = """
 #TRATAMIENTO DE DATOS
 import pandas as pd
@@ -52,7 +30,10 @@ import urllib
 
 import plotly.express as px
 """
+
 st.code(codigo_python, language="python")
+st.write("Todo los datos salieron del siguiente DataSet: https://www.datos.gov.co/Seguridad-y-Defensa/92-Delitos-en-Bucaramanga-enero-2016-a-julio-de-20/x46e-abhz")
+
 st.write("En el tratamiento de datos necesitamos unir algunas columnas, quitar las vacias etc")
 codigo_python = """
 #La biblioteca merge realiza fusion entre DataFrames
