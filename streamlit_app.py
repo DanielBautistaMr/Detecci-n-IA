@@ -91,6 +91,8 @@ El dataset importado no a sido claramente limpio y aqui hay algunas razones para
 
 11.Facilita la colaboración: Datos limpios son más fáciles de compartir y colaborar en análisis interdisciplinarios.
 
+""")
+
 
 
 
