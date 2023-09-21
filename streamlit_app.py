@@ -63,8 +63,11 @@ dfbarrios
 """
 st.code(codigo_python, language="python")
 #G R A F I C A C I O N
+
+st.write("# PROCESO DE ANALISIS")
+
 st.write(""" 
-#Proceso de limpieza
+
 
 El dataset importado no a sido claramente limpio y aqui hay algunas razones para hacerlo: 
 
