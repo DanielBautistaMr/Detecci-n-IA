@@ -12,7 +12,7 @@ if nombre_lector:
 else:
     st.write("Por favor, introduce tu nombre arriba para una bienvenida personalizada.")
 # Imagen
-st.("analisis de datos delitos bga.png")
+st.image("analisis de datos delitos bga.png")
 # Código de ejemplo
 st.write("Vamos a comenzar a desglosar este Analisis :)")
 st.write("# ANALISIS")
@@ -74,7 +74,7 @@ fig,ax,=plt.subplots()
 ax.bar(cantidadaño.index,cantidadaño["DESCRIPCION_CONDUCTA"])
 """
 st.code(codigo_python, language="python")
-st.("2grafico.jpg")
+st.image("2grafico.jpg")
 #
 st.write("Intentamos encontrar con regresión encontrar relacion entre dos variables:")
 codigo_python = """
