@@ -248,6 +248,7 @@ fig.show()
 st.code(codigo_python, language="python")
 
 st.write('')
+st.write('')
 
 st.image("newplot.png")
 
