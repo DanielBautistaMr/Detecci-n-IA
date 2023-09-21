@@ -458,7 +458,7 @@ st.markdown("7. El arma más utilizada es la blanca cortopunzante, la mayoria de
 st.markdown("8. No existe una gran diferencia entre los que van en motocicleta a los que van en un vehiculo. 👻")
 
 
-st.markdown("#  PREPROCESSAMIENTO ")
+st.write("#  PREPROCESSAMIENTO ")
 
 st.write('Se muestra el modelo escogido y su funcionamiento como el codigo ')
 st.write('Librerias usadas: ')
@@ -539,14 +539,14 @@ st.code(codigo_python, language="python")
 
 
 
-st.subheader("#  ¿Por que usar el modeloBA? ")
+st.subheader("¿Por que usar el modeloBA? ")
 
 st.write("""se escogio debido a que su accuracy nos dio mayor exactitud a comparacion de otros modelo sus resultados fueron mayores.
 
 Otros motivos son porque en general es bueno para predecir cosas con precisión, incluso cuando tenemos muchos datos para mirar. Además, es bueno para tratar con datos desequilibrados y no exagerar las predicciones.""")
 
 
-st.markdown("#  MODELO EN FUNCIONAMIENTO ")
+st.write("#  MODELO EN FUNCIONAMIENTO ")
 
 st.write('El siguiente video muestra el video de la IA usando el modeloBA escogido despues del preprocessamiento: ')
 
