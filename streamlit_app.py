@@ -159,6 +159,14 @@ st.write('')
 
 st.image("./images/grafico1.png")
 
+st.markdown(
+    f'<div style="display: flex; justify-content: center;"><img src="./images/grafico1.png" alt="Gráfico 1"></div>',
+    unsafe_allow_html=True
+)
+
+st.write('')
+
+
 codigo_python = """
 #Se hace una grafica de lineas para asi poder visualizar mejor la cantidad de delitos atraves de los años
 #teniendo en cuenta los meses que en los que se realizaron
@@ -431,10 +439,7 @@ st.code(codigo_python, language="python")
 st.write('')
 
 
-st.markdown(
-    f'<div style="display: flex; justify-content: center;"><img src="./images/grafico1.png" alt="Gráfico 1"></div>',
-    unsafe_allow_html=True
-)
+
 
 
 # ACA VA EL PREPROCESAMIENTO ------------------------------------------ CRISTIAN
