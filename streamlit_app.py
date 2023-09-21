@@ -686,7 +686,7 @@ st.code(codigo_python, language="python")
 st.write("#  MODELO EN FUNCIONAMIENTO 🤖 ")
 
 st.write(
-    "El siguiente video muestra el video de la IA usando el modeloBA escogido despues del preprocessamiento: "
+    "🎥 El siguiente video muestra el video de la IA usando el modeloBA escogido despues del preprocessamiento: "
 )
 
 # Cargar el video desde el sistema local
