@@ -387,7 +387,7 @@ plt.show()
 st.code(codigo_python, language="python")
 
 st.write('')
-st.image("./images/grafico9.png")
+st.image("./images/grafica9.png")
 st.write('')
 
 codigo_python = """
