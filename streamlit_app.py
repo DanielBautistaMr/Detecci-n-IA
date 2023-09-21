@@ -37,9 +37,9 @@ import plotly.express as px
 st.code(codigo_python, language="python")
 
 
-st.write("""Se conecta Drive con el google colab para poder aceder a los datos subidos en 
+st.write("""Se conecta Drive con el google colab para poder aceder a los datos subidos del dataset de delitos
 
-1.   Elemento de la lista
+
 
 este""")
 codigo_python = """
@@ -50,11 +50,11 @@ df
 """
 st.code(codigo_python, language="python")
 
-st.write("""
+st.write("""Se conecta Drive con el google colab para poder aceder a los datos subidos del dataset de barrios
 
-2.   Elemento de la lista
 
-este""")
+
+""")
 codigo_python = """
 from google.colab import drive
 drive.mount('/content/drive')
