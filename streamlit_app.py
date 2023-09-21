@@ -447,7 +447,7 @@ st.code(codigo_python, language="python")
 st.write("")
 
 
-st.write("#  CONCLUSIONES 🦾 ")
+st.write("#  CONCLUSIONES DEL ANALISIS 🦾 ")
 
 
 st.markdown(
@@ -700,3 +700,12 @@ st.video(video_bytes)
 st.write(
     "Como podemos ver el modelo esta funcionando de forma perfecta nos imprime una grafica en donde podemos ver de manera visual la probabilidad de sufrir un delito"
 )
+
+
+st.markdown("CONCLUCION MODELO")
+st.write("""
+El modelo final representa una herramienta poderosa para analizar, predecir y comprender patrones delictivos en la ciudad. Su alto nivel de precisión y capacidad para considerar múltiples variables, como la edad, el género, el mes, la hora, la comuna y el día de la semana, lo convierten en un recurso valioso para la toma de decisiones y la planificación de estrategias de seguridad.
+
+El modelo puede ayudar a las autoridades y a la comunidad en general a identificar áreas de mayor riesgo, tomar medidas preventivas y asignar recursos de manera más efectiva para mejorar la seguridad pública en Bucaramanga. En última instancia, esta herramienta contribuye a la creación de entornos más seguros y a la reducción de la incidencia delictiva en la ciudad.
+""")
+
