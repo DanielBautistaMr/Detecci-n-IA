@@ -556,3 +556,6 @@ video_bytes = video_file.read()
 
 # Mostrar el video
 st.video(video_bytes)
+
+
+st.write("Como podemos ver el modelo esta funcionando de forma perfecta nos imprime una grafica en donde podemos ver de manera visual la probabilidad de sufrir un delito")
