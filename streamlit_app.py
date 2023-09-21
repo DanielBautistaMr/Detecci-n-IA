@@ -702,7 +702,8 @@ st.write(
 )
 
 
-st.markdown("CONCLUCION MODELO")
+
+st.markdown("#  CONCLUCION MODELO 👏")
 st.write("""
 El modelo final representa una herramienta poderosa para analizar, predecir y comprender patrones delictivos en la ciudad. Su alto nivel de precisión y capacidad para considerar múltiples variables, como la edad, el género, el mes, la hora, la comuna y el día de la semana, lo convierten en un recurso valioso para la toma de decisiones y la planificación de estrategias de seguridad.
 
