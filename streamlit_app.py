@@ -44,18 +44,10 @@ st.write("""Se conecta Drive con el google colab para poder aceder a los datos s
 
 este""")
 codigo_python = """
-#La biblioteca merge realiza fusion entre DataFrames
-df=pd.merge(df,dfbarrios,on="NOM_COM")
-#Vamos a comenzar a eliminar columnas, el argumento es Unname:0 y loc, con el axis decimos que elimine la columna
-#inplcae=true, estamso diciendo que mdoifique el df y no cree otro
-df.drop(['Unnamed: 0','loc'],axis=1,inplace=True)
-#Aqui concatenamos fecha y hora y agregamos un espacio en blanco
-df['FECHA_COMPLETA'] = df["FECHA_HECHO"]+ ' ' + df["HORA_HECHO"]
-# Agrupamos por año
-#Por count agregamos cuantas veces aparece cada valor unico en la columna
-#Convertimos a DataFrame
-cantidadaño=df.groupby(df["FECHA_HECHO"].dt.year)["DESCRIPCION_CONDUCTA"].count().to_frame()
-cantidadaño
+from google.colab import drive
+drive.mount('/content/drive')
+df=pd.read_csv('/content/drive/MyDrive/Delitos proyecto/delitos_bucaramanga.csv')
+df
 """
 st.code(codigo_python, language="python")
 #G R A F I C A C I O N
