@@ -255,21 +255,7 @@ st.write('')
 
 
 
-st.write("Mostramos un mapa de calor, despues de haber modificado nuestro DataFrame para que nos diera las coordenadas:")
-codigo_python = """
-frecuencias_barrios_filtradas = frecuencias_barrios[frecuencias_barrios >= 1000] #filtramos
-plt.figure(figsize=(8, 4))  # Tamaño de la figura
-frecuencias_barrios_filtradas.plot(kind='barh', color='skyblue')  # Tipo de gráfico y sus colores
-plt.title('Registro de frecuencia en Barrios (Filtrados & Organizados)')
-plt.xlabel('FRECUENCIA')  # Etiqueta del eje x
-plt.ylabel('BARRIOS')  # Etiqueta del eje y
-plt.tight_layout()
-plt.show()  # Muestra el gráfico
-"""
-st.code(codigo_python, language="python")
-st.image("5grafico.jpg")
 
-#
 st.write("Graficos de barras Frecuencias Delito:")
 codigo_python = """
 # Filtrar los tipos de delito con una cantidad mayor a 400
