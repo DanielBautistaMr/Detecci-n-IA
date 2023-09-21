@@ -66,7 +66,10 @@ st.code(codigo_python, language="python")
 st.write(""" 
 #Proceso de limpieza
 
-1.El dataset importado no a sido claramente limpio y aqui hay algunas razones para hacerlo:
+El dataset importado no a sido claramente limpio y aqui hay algunas razones para hacerlo: 
+
+
+1.Minimización de sesgos: La limpieza de datos puede ayudar a identificar y mitigar sesgos en el dataset, lo que es fundamental para obtener resultados justos y equitativos en análisis y modelos. 
 
 2.Precisión de los resultados: Eliminar datos incorrectos o inconsistentes mejora la precisión de los análisis y modelos.
 
@@ -88,16 +91,9 @@ st.write("""
 
 11.Facilita la colaboración: Datos limpios son más fáciles de compartir y colaborar en análisis interdisciplinarios.
 
-""")
-codigo_python = """
-#Graficamos la informacion de arriba en barras
-fig,ax,=plt.subplots()
-ax.bar(cantidadaño.index,cantidadaño["DESCRIPCION_CONDUCTA"])
-"""
-st.code(codigo_python, language="python")
 
 
-st.write("Se arreglan los datasets y se limpian: ")
+
 codigo_python = """
 # Se muestra cuantas veces se repite un barrio en el data frame para comprender la distribución de datos en la columna de BARRIOS_HECHOS
 df.BARRIOS_HECHO.value_counts()
