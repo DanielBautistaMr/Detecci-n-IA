@@ -69,7 +69,7 @@ st.write("# PROCESO DE LIMPIEZA")
 st.write(""" 
 
 
-El dataset importado no a sido claramente limpio y aqui hay algunas razones para hacerlo: 
+El dataset importado no a sido claramente filtrado y limpiado aqui hay algunas razones para hacerlo: 
 
 
 1.Minimización de sesgos: La limpieza de datos puede ayudar a identificar y mitigar sesgos en el dataset, lo que es fundamental para obtener resultados justos y equitativos en análisis y modelos. 
